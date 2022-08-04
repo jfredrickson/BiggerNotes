@@ -41,6 +41,8 @@
 		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
 		A998861228970A830041462E /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		A9EE0EA3289B4BA800012FE2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A9EE0EA4289B4BDD00012FE2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		A91092EC28959F4F00F87E84 = {
 			isa = PBXGroup;
 			children = (
+				A9EE0EA4289B4BDD00012FE2 /* README.md */,
+				A9EE0EA3289B4BA800012FE2 /* LICENSE */,
 				A91092F728959F4F00F87E84 /* BiggerNotes */,
 				A91092F628959F4F00F87E84 /* Products */,
 			);
