@@ -8,7 +8,7 @@
 import AppIntents
 
 struct CreateNewNote: AppIntent {
-    static var title: LocalizedStringResource = "Create New BiggerNote"
+    static var title: LocalizedStringResource = "Create a new BiggerNote"
     static var openAppWhenRun: Bool = true
 
     @MainActor func perform() async throws -> some IntentResult {

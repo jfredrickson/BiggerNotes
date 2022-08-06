@@ -12,12 +12,12 @@ struct AppShortcuts: AppShortcutsProvider {
         AppShortcut(
             intent: CreateNewNote(),
             phrases: [
-                "Create new BiggerNote",
-                "New BiggerNote",
-                "Create BiggerNote",
-                "Create new note in \(.applicationName)",
                 "New note in \(.applicationName)",
-                "Create note in \(.applicationName)"
+                "New \(.applicationName)",
+                "Create new note in \(.applicationName)",
+                "Create new \(.applicationName)",
+                "Create note in \(.applicationName)",
+                "Create \(.applicationName)",
             ],
             systemImageName: "square.and.pencil"
         )
