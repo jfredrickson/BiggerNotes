@@ -11,11 +11,13 @@ import SwiftUI
 struct BiggerNotesApp: App {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var noteViewModel = NoteViewModel()
+    @StateObject var router = Router.shared
 
     var body: some Scene {
         WindowGroup {
             NoteList()
                 .environmentObject(noteViewModel)
+                .environmentObject(router)
         }
         .onChange(of: scenePhase) { phase in
             // Save all data upon app close

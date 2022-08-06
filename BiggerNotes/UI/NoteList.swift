@@ -10,10 +10,10 @@ import CoreData
 
 struct NoteList: View {
     @EnvironmentObject var noteViewModel: NoteViewModel
-    @State var navigationPath: [Note] = []
+    @EnvironmentObject var router: Router
 
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack(path: $router.path) {
             List {
                 NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill")
                 NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text")
@@ -28,7 +28,7 @@ struct NoteList: View {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
-                        navigationPath.append(noteViewModel.new())
+                        router.displayNote(noteViewModel.new())
                     } label: {
                         Label("New Note", systemImage: "square.and.pencil")
                     }
@@ -43,5 +43,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NoteList()
             .environmentObject(NoteViewModel(withPersistenceController: .preview))
+            .environmentObject(Router())
     }
 }

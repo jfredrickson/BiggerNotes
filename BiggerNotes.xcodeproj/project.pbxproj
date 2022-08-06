@@ -21,6 +21,9 @@
 		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
 		A998861328970A830041462E /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998861228970A830041462E /* SettingsButton.swift */; };
+		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
+		A9EE0EA9289E310000012FE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA8289E310000012FE2 /* Router.swift */; };
+		A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		A998861228970A830041462E /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		A9EE0EA3289B4BA800012FE2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A9EE0EA4289B4BDD00012FE2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNote.swift; sourceTree = "<group>"; };
+		A9EE0EA8289E310000012FE2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			children = (
 				A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */,
 				A9448279289B1A5900F6E7FC /* Data */,
+				A9EE0EA5289E303000012FE2 /* Intents */,
 				A944827A289B1A6F00F6E7FC /* UI */,
 				A91092FC28959F5000F87E84 /* Assets.xcassets */,
 				A910930628959F5000F87E84 /* Info.plist */,
@@ -114,11 +121,21 @@
 				A99179102897656100AD3C30 /* NoteListSection.swift */,
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
 				A9917914289869F500AD3C30 /* NoteViewModel.swift */,
+				A9EE0EA8289E310000012FE2 /* Router.swift */,
 				A998861228970A830041462E /* SettingsButton.swift */,
 				A910931828962CB200F87E84 /* SettingsSheet.swift */,
 				A99179162898917500AD3C30 /* View+ErrorAlert.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		A9EE0EA5289E303000012FE2 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */,
+				A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */,
+			);
+			path = Intents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +212,16 @@
 				A910930228959F5000F87E84 /* Persistence.swift in Sources */,
 				A910930528959F5000F87E84 /* BiggerNotes.xcdatamodeld in Sources */,
 				A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */,
+				A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */,
 				A998861328970A830041462E /* SettingsButton.swift in Sources */,
 				A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */,
 				A910931928962CB200F87E84 /* SettingsSheet.swift in Sources */,
 				A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */,
 				A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */,
+				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
 				A91093112895A50100F87E84 /* NoteDetail.swift in Sources */,
 				A99179112897656100AD3C30 /* NoteListSection.swift in Sources */,
+				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
