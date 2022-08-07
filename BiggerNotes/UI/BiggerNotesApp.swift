@@ -11,12 +11,14 @@ import SwiftUI
 struct BiggerNotesApp: App {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var noteViewModel = NoteViewModel()
+    @StateObject var settingsViewModel = SettingsViewModel()
     @StateObject var router = Router.shared
 
     var body: some Scene {
         WindowGroup {
             NoteList()
                 .environmentObject(noteViewModel)
+                .environmentObject(settingsViewModel)
                 .environmentObject(router)
         }
         .onChange(of: scenePhase) { phase in

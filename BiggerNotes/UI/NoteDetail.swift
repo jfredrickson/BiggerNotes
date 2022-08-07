@@ -10,14 +10,13 @@ import SwiftUI
 struct NoteDetail: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var noteViewModel: NoteViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     @ObservedObject var note: Note
-    @AppStorage("textSize") private var textSize = 40.0
-    @AppStorage("textWeight") private var textWeight = NoteTextWeight.semibold
     @FocusState private var contentFocused: Bool
 
     var body: some View {
         TextEditor(text: $note.content)
-            .font(.system(size: textSize, weight: textWeight.instance))
+            .font(.system(size: settingsViewModel.textSize, weight: settingsViewModel.textWeight.instance))
             .task {
                 contentFocused = note.content.isEmpty
             }
@@ -64,6 +63,7 @@ struct NoteDetailView_Previews: PreviewProvider {
         let note = NoteViewModel(withPersistenceController: .preview).notes.first!
         return NavigationView {
             NoteDetail(note: note)
+                .environmentObject(SettingsViewModel())
         }
     }
 }

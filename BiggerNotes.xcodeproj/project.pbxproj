@@ -24,6 +24,7 @@
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
 		A9EE0EA9289E310000012FE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA8289E310000012FE2 /* Router.swift */; };
 		A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */; };
+		A9EE0EB328A01AF500012FE2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNote.swift; sourceTree = "<group>"; };
 		A9EE0EA8289E310000012FE2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
+		A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				A9EE0EA8289E310000012FE2 /* Router.swift */,
 				A998861228970A830041462E /* SettingsButton.swift */,
 				A910931828962CB200F87E84 /* SettingsSheet.swift */,
+				A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */,
 				A99179162898917500AD3C30 /* View+ErrorAlert.swift */,
 			);
 			path = UI;
@@ -223,6 +226,7 @@
 				A99179112897656100AD3C30 /* NoteListSection.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
+				A9EE0EB328A01AF500012FE2 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
