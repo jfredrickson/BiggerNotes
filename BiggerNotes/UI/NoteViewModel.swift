@@ -85,7 +85,6 @@ class NoteViewModel: NSObject, ObservableObject {
     // Delete a specific note
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
-        refresh()
     }
 
     // Toggle the favorite status of a note

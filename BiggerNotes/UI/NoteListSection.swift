@@ -45,6 +45,8 @@ struct NoteListSection: View {
                     }
                 }
             }
+            .id(UUID())
+            .animation(.default, value: notes)
         } header: {
             Label(sectionHeaderText, systemImage: sectionHeaderIcon)
         }
