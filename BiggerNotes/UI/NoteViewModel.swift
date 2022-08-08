@@ -34,11 +34,11 @@ class NoteViewModel: NSObject, ObservableObject {
         )
         super.init()
         noteController.delegate = self
-        fetch()
+        refresh()
     }
 
-    // Do an initial fetch
-    private func fetch() {
+    // Refresh all notes
+    private func refresh() {
         do {
             try noteController.performFetch()
             notes = noteController.fetchedObjects ?? []
@@ -85,11 +85,7 @@ class NoteViewModel: NSObject, ObservableObject {
     // Delete a specific note
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
-    }
-
-    // Delete a set of notes
-    func delete(offsets: IndexSet) {
-        offsets.map { notes[$0] }.forEach(delete)
+        refresh()
     }
 
     // Toggle the favorite status of a note
