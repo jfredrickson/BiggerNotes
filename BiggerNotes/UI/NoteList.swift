@@ -34,6 +34,7 @@ struct NoteList: View {
                     }
                 }
             }
+            .listStyle(.sidebar)
             .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
     }
