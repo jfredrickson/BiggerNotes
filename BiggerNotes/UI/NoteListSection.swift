@@ -20,7 +20,7 @@ struct NoteListSection: View {
                     VStack(alignment: .leading) {
                         Text(note.content)
                             .lineLimit(1)
-                        Text(dateFormatter.string(from: note.lastModified))
+                        Text(dateFormatter.string(from: note.modified))
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

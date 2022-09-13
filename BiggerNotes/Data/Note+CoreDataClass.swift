@@ -14,8 +14,8 @@ public class Note: NSManagedObject {
     // Automatically update lastModified if content changed
     public override func willSave() {
         super.willSave()
-        if !isDeleted && !changedValues().keys.contains("lastModified") && changedValues().keys.contains("content") {
-            lastModified = Date()
+        if !isDeleted && !changedValues().keys.contains("modified") && changedValues().keys.contains("content") {
+            modified = Date()
         }
     }
 }

@@ -22,7 +22,8 @@ struct PersistenceController {
             let newNote = Note(context: viewContext)
             newNote.id = UUID()
             newNote.content = strings[Int.random(in: 0...2)]
-            newNote.lastModified = Date()
+            newNote.created = Date()
+            newNote.modified = newNote.created
             newNote.favorite = (i % 3 == 0)
         }
         do {

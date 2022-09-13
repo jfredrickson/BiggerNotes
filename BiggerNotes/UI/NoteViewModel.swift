@@ -75,7 +75,8 @@ class NoteViewModel: NSObject, ObservableObject {
     func new(_ content: String = "", favorite: Bool = false) -> Note {
         let note = Note(context: managedObjectContext)
         note.id = UUID()
-        note.lastModified = Date()
+        note.created = Date()
+        note.modified = note.created
         note.content = content
         note.favorite = favorite
         save()
