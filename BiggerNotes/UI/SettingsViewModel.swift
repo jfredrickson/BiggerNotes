@@ -15,6 +15,11 @@ class SettingsViewModel: ObservableObject {
 
     @AppStorage("textSize") var textSize = DefaultTextSize
     @AppStorage("textWeight") var textWeight = DefaultTextWeight
+
+    func resetToDefaults() {
+        textSize = SettingsViewModel.DefaultTextSize
+        textWeight = SettingsViewModel.DefaultTextWeight
+    }
 }
 
 // Produces text weight options for the settings sheet
