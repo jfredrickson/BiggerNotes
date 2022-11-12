@@ -47,6 +47,12 @@ struct NoteDetail: View {
                 }
                 ToolbarItemGroup(placement: .keyboard) {
                     Spacer()
+                    // Clear content
+                    Button {
+                        note.content = ""
+                    } label: {
+                        Label("Clear", systemImage: "delete.left")
+                    }
                     // Hide keyboard
                     Button {
                         contentFocused = false
