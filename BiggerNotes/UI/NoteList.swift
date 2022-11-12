@@ -9,14 +9,15 @@ import SwiftUI
 import CoreData
 
 struct NoteList: View {
+    @EnvironmentObject var noteListViewModel: NoteListViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
 
     var body: some View {
         NavigationStack(path: $router.path) {
             List {
-                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill")
-                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text")
+                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $noteListViewModel.expandFavoritesSection)
+                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $noteListViewModel.expandNotesSection)
             }
             .task {
                 noteViewModel.prune()
@@ -34,7 +35,6 @@ struct NoteList: View {
                     }
                 }
             }
-            .listStyle(.sidebar)
             .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
     }
