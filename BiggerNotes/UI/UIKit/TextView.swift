@@ -54,7 +54,7 @@ extension TextView {
             toolbar.sizeToFit()
             toolbar.isUserInteractionEnabled = true
             toolbar.setItems([
-                UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(handleClearButton)),
+//                UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(handleClearButton)),
                 UIBarButtonItem(systemItem: .flexibleSpace),
                 UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down"), style: .done, target: self, action: #selector(handleDoneButton)),
             ], animated: false)
@@ -62,9 +62,9 @@ extension TextView {
             return true
         }
 
-        @objc func handleClearButton() {
-            self.text.wrappedValue = ""
-        }
+//        @objc func handleClearButton() {
+//            self.text.wrappedValue = ""
+//        }
 
         @objc func handleDoneButton() {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
