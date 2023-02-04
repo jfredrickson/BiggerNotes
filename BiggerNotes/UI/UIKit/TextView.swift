@@ -27,7 +27,9 @@ struct TextView: UIViewRepresentable {
 
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
-        textView.font = UIFont.systemFont(ofSize: textSize, weight: textWeight)
+        DispatchQueue.main.async {
+            textView.font = UIFont.systemFont(ofSize: textSize, weight: textWeight)
+        }
     }
 
     func makeCoordinator() -> Coordinator {
