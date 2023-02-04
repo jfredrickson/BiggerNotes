@@ -30,7 +30,7 @@ enum NoteTextWeight: String, CaseIterable, Identifiable {
     case bold = "Bold"
 
     // Return the appropriate Font.Weight instance
-    var instance: Font.Weight {
+    var instance: UIFont.Weight {
         switch self {
         case .light: return .light
         case .regular: return .regular
