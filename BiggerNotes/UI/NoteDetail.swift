@@ -15,9 +15,9 @@ struct NoteDetail: View {
     @FocusState private var contentFocused: Bool
 
     var body: some View {
-        Group {
+        VStack {
             TextView(text: $note.content, textSize: settingsViewModel.textSize, textWeight: settingsViewModel.textWeight.instance)
-                .task {
+                .task(priority: .utility) {
                     contentFocused = note.content.isEmpty
                 }
                 .focused($contentFocused)
