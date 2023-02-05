@@ -10,26 +10,19 @@ import SwiftUI
 struct TextView: UIViewRepresentable {
     @Binding var text: String
 
-    private var textSize: Double
-    private var textWeight: UIFont.Weight
-
-    init(text: Binding<String>, textSize: Double, textWeight: UIFont.Weight) {
-        _text = text
-        self.textSize = textSize
-        self.textWeight = textWeight
-    }
+    var textSize: Double
+    var textWeight: UIFont.Weight
 
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
         textView.delegate = context.coordinator
+        textView.layoutManager.allowsNonContiguousLayout = false // Prevents scroll glitching
         return textView
     }
 
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
-        DispatchQueue.main.async {
-            textView.font = UIFont.systemFont(ofSize: textSize, weight: textWeight)
-        }
+        textView.font = UIFont.systemFont(ofSize: textSize, weight: textWeight)
     }
 
     func makeCoordinator() -> Coordinator {
@@ -51,15 +44,12 @@ extension TextView {
 
         func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
             let toolbar = UIToolbar()
-            toolbar.barStyle = .default
-            toolbar.backgroundColor = .systemBackground
-            toolbar.sizeToFit()
-            toolbar.isUserInteractionEnabled = true
             toolbar.setItems([
 //                UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(handleClearButton)),
                 UIBarButtonItem(systemItem: .flexibleSpace),
                 UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down"), style: .done, target: self, action: #selector(handleDoneButton)),
             ], animated: false)
+            toolbar.sizeToFit()
             textView.inputAccessoryView = toolbar
             return true
         }
