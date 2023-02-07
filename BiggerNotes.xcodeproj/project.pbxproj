@@ -22,6 +22,7 @@
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
 		A998861328970A830041462E /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998861228970A830041462E /* SettingsButton.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
+		A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */; };
 		A9CE291F291F13E000C66497 /* NoteListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE291E291F13E000C66497 /* NoteListSectionHeader.swift */; };
 		A9CE2921291F143100C66497 /* NoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE2920291F143100C66497 /* NoteListViewModel.swift */; };
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
@@ -50,6 +51,7 @@
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
 		A998861228970A830041462E /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		A9B0D481298C1507005B58B3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
 		A9CE291E291F13E000C66497 /* NoteListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListSectionHeader.swift; sourceTree = "<group>"; };
 		A9CE2920291F143100C66497 /* NoteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListViewModel.swift; sourceTree = "<group>"; };
 		A9EE0EA3289B4BA800012FE2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				A9B0D483298C160F005B58B3 /* UIKit */,
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
+				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
 				A91092FA28959F4F00F87E84 /* NoteList.swift */,
 				A99179102897656100AD3C30 /* NoteListSection.swift */,
 				A9CE291E291F13E000C66497 /* NoteListSectionHeader.swift */,
@@ -245,6 +248,7 @@
 				A91093112895A50100F87E84 /* NoteDetail.swift in Sources */,
 				A9CE291F291F13E000C66497 /* NoteListSectionHeader.swift in Sources */,
 				A99179112897656100AD3C30 /* NoteListSection.swift in Sources */,
+				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,

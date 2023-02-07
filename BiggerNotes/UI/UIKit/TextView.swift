@@ -9,9 +9,7 @@ import SwiftUI
 
 struct TextView: UIViewRepresentable {
     @Binding var text: String
-
-    var textSize: Double
-    var textWeight: UIFont.Weight
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
 
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
@@ -22,7 +20,14 @@ struct TextView: UIViewRepresentable {
 
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
-        textView.font = UIFont.systemFont(ofSize: textSize, weight: textWeight)
+        textView.font = UIFont.systemFont(ofSize: settingsViewModel.textSize, weight: settingsViewModel.textWeight.instance)
+        if (settingsViewModel.useCustomColors) {
+            textView.textColor = UIColor(settingsViewModel.textColor)
+            textView.backgroundColor = UIColor(settingsViewModel.backgroundColor)
+        } else {
+            textView.textColor = .label
+            textView.backgroundColor = .systemBackground
+        }
     }
 
     func makeCoordinator() -> Coordinator {
