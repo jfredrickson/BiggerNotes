@@ -12,15 +12,10 @@ struct NoteDetail: View {
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var settingsViewModel: SettingsViewModel
     @ObservedObject var note: Note
-    @FocusState private var contentFocused: Bool
 
     var body: some View {
         VStack {
             TextView(text: $note.content)
-            .task(priority: .utility) {
-                contentFocused = note.content.isEmpty
-            }
-            .focused($contentFocused)
             .onDisappear {
                 noteViewModel.save()
             }

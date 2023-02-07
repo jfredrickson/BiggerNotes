@@ -16,6 +16,10 @@ struct TextView: UIViewRepresentable {
         textView.delegate = context.coordinator
         textView.layoutManager.allowsNonContiguousLayout = false // Prevents scroll glitching
 
+        if text.isEmpty {
+            textView.becomeFirstResponder()
+        }
+
         let toolbar = UIToolbar()
         toolbar.setItems([
             UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(textView.clear)),
