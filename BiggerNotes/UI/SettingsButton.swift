@@ -16,8 +16,8 @@ struct SettingsButton: View {
         } label: {
             Label("Settings", systemImage: "textformat.size")
         }
-        .sheet(isPresented: $showingTextSettingsSheet) {
-            SettingsSheet().presentationDetents([.medium])
+        .popover(isPresented: $showingTextSettingsSheet) {
+            SettingsSheet().presentationDetents([.medium, .large])
         }
     }
 }

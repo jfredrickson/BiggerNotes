@@ -16,14 +16,14 @@ struct NoteDetail: View {
 
     var body: some View {
         VStack {
-            TextView(text: $note.content, textSize: settingsViewModel.textSize, textWeight: settingsViewModel.textWeight.instance)
-                .task(priority: .utility) {
-                    contentFocused = note.content.isEmpty
-                }
-                .focused($contentFocused)
-                .onDisappear {
-                    noteViewModel.save()
-                }
+            TextView(text: $note.content)
+            .task(priority: .utility) {
+                contentFocused = note.content.isEmpty
+            }
+            .focused($contentFocused)
+            .onDisappear {
+                noteViewModel.save()
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
