@@ -20,8 +20,7 @@ struct SettingsSheet: View {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "xmark.circle")
-                        .accessibilityLabel(Text("Done"))
+                    Text("Done")
                 }
             }
             .padding([.top, .leading, .trailing])
