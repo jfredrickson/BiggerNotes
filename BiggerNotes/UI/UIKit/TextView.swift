@@ -34,7 +34,14 @@ struct TextView: UIViewRepresentable {
 
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
-        textView.font = UIFont.systemFont(ofSize: settingsViewModel.textSize, weight: settingsViewModel.textWeight.instance)
+        
+        if (settingsViewModel.font == "System") {
+            textView.font = UIFont.systemFont(ofSize: settingsViewModel.textSize, weight: settingsViewModel.textWeight.instance)
+        } else {
+            textView.font = UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: settingsViewModel.font]), size: settingsViewModel.textSize)
+                .withWeight(settingsViewModel.textWeight.instance)
+        }
+        
         if (settingsViewModel.useCustomColors) {
             textView.textColor = UIColor(settingsViewModel.textColor)
             textView.backgroundColor = UIColor(settingsViewModel.backgroundColor)

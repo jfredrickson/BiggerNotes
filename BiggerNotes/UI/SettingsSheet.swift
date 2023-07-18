@@ -51,6 +51,16 @@ struct SettingsSheet: View {
                         }
                         .pickerStyle(.segmented)
                     }
+                    VStack {
+                        // Font
+                        Picker("Font", selection: $settingsViewModel.font) {
+                            ForEach(SettingsViewModel.availableFonts, id: \.self) { option in
+                                Text(option)
+                                    .tag(option)
+                            }
+                        }
+                        .pickerStyle(.automatic)
+                    }
                 }
 
                 // Color

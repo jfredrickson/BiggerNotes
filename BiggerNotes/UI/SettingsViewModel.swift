@@ -12,12 +12,14 @@ class SettingsViewModel: ObservableObject {
     static let MaxTextSize = 80.0
     static let DefaultTextSize = 50.0
     static let DefaultTextWeight = NoteTextWeight.semibold
+    static let DefaultFont = "System"
     static let DefaultUseCustomColors = false
     static let DefaultTextColor = Color.black
     static let DefaultBackgroundColor = Color.white
 
     @AppStorage("textSize") var textSize = DefaultTextSize
     @AppStorage("textWeight") var textWeight = DefaultTextWeight
+    @AppStorage("font") var font = DefaultFont
     @AppStorage("useCustomColors") var useCustomColors = DefaultUseCustomColors
     @AppStorage("textColor") var textColor = DefaultTextColor
     @AppStorage("backgroundColor") var backgroundColor = DefaultBackgroundColor
@@ -25,8 +27,25 @@ class SettingsViewModel: ObservableObject {
     func resetToDefaults() {
         textSize = SettingsViewModel.DefaultTextSize
         textWeight = SettingsViewModel.DefaultTextWeight
+        font = SettingsViewModel.DefaultFont
         useCustomColors = SettingsViewModel.DefaultUseCustomColors
     }
+    
+    static let availableFonts = [
+        "System",
+        "American Typewriter",
+        "Avenir Next",
+        "Avenir Next Condensed",
+        "Chalkboard SE",
+        "Charter",
+        "Copperplate",
+        "Courier New",
+        "Gill Sans",
+        "Menlo",
+        "Noteworthy",
+        "Optima",
+        "Rockwell",
+    ]
 }
 
 // Produces text weight options for the settings sheet

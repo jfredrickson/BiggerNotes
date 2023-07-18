@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
 		A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */; };
 		A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092FA28959F4F00F87E84 /* NoteList.swift */; };
 		A91092FD28959F5000F87E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91092FC28959F5000F87E84 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A91092F528959F4F00F87E84 /* BiggerNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiggerNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerNotesApp.swift; sourceTree = "<group>"; };
 		A91092FA28959F4F00F87E84 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B0D481298C1507005B58B3 /* TextView.swift */,
+				0847AED42A66FEAB00A60344 /* UIFont.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				A99179112897656100AD3C30 /* NoteListSection.swift in Sources */,
 				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
+				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
 				A9EE0EB328A01AF500012FE2 /* SettingsViewModel.swift in Sources */,
@@ -391,7 +395,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +427,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
