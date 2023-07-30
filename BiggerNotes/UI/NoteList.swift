@@ -43,6 +43,7 @@ struct NoteList: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NoteList()
+            .environmentObject(NoteListViewModel())
             .environmentObject(NoteViewModel(withPersistenceController: .preview))
             .environmentObject(Router())
     }
