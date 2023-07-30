@@ -27,6 +27,9 @@ struct NoteList: View {
                 NoteDetail(note: note)
             }
             .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    AppSettingsButton()
+                }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         router.displayNote(noteViewModel.new())

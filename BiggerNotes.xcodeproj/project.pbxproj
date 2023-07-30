@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081232842A7608F3009055E2 /* AppSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232832A7608F3009055E2 /* AppSettingsButton.swift */; };
+		081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232852A76097C009055E2 /* AppSettingsSheet.swift */; };
+		081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232872A7609EA009055E2 /* AppSettingsViewModel.swift */; };
+		0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232892A761508009055E2 /* Bundle+Versions.swift */; };
 		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
 		A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */; };
 		A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092FA28959F4F00F87E84 /* NoteList.swift */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081232832A7608F3009055E2 /* AppSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsButton.swift; sourceTree = "<group>"; };
+		081232852A76097C009055E2 /* AppSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsSheet.swift; sourceTree = "<group>"; };
+		081232872A7609EA009055E2 /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
+		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A91092F528959F4F00F87E84 /* BiggerNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiggerNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerNotesApp.swift; sourceTree = "<group>"; };
@@ -131,7 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				A9B0D483298C160F005B58B3 /* UIKit */,
+				081232832A7608F3009055E2 /* AppSettingsButton.swift */,
+				081232852A76097C009055E2 /* AppSettingsSheet.swift */,
+				081232872A7609EA009055E2 /* AppSettingsViewModel.swift */,
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
+				081232892A761508009055E2 /* Bundle+Versions.swift */,
 				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
 				A91092FA28959F4F00F87E84 /* NoteList.swift */,
 				A99179102897656100AD3C30 /* NoteListSection.swift */,
@@ -239,12 +251,15 @@
 				A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */,
 				A910930228959F5000F87E84 /* Persistence.swift in Sources */,
 				A910930528959F5000F87E84 /* BiggerNotes.xcdatamodeld in Sources */,
+				081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */,
 				A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */,
 				A9CE2921291F143100C66497 /* NoteListViewModel.swift in Sources */,
 				A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */,
+				081232842A7608F3009055E2 /* AppSettingsButton.swift in Sources */,
 				A998861328970A830041462E /* TextSettingsButton.swift in Sources */,
 				A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */,
 				A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */,
+				0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */,
 				A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */,
 				A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */,
 				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
@@ -253,6 +268,7 @@
 				A99179112897656100AD3C30 /* NoteListSection.swift in Sources */,
 				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
+				081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */,
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
@@ -400,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejeff.BiggerNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -432,7 +448,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejeff.BiggerNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
