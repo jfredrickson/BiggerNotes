@@ -1,5 +1,5 @@
 //
-//  SettingsSheet.swift
+//  TextSettingsSheet.swift
 //  BiggerNotes
 //
 //  Created by Jeff Fredrickson on 7/30/22.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SettingsSheet: View {
+struct TextSettingsSheet: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
 
     var body: some View {
         VStack {
@@ -32,18 +32,18 @@ struct SettingsSheet: View {
                         // Text size
                         HStack {
                             Text("Aa")
-                                .font(.system(size: SettingsViewModel.MinTextSize))
+                                .font(.system(size: TextSettingsViewModel.MinTextSize))
                             Slider(
-                                value: $settingsViewModel.textSize,
-                                in: SettingsViewModel.MinTextSize...SettingsViewModel.MaxTextSize
+                                value: $textSettingsViewModel.textSize,
+                                in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
                             )
                             Text("Aa")
-                                .font(.system(size: SettingsViewModel.MaxTextSize))
+                                .font(.system(size: TextSettingsViewModel.MaxTextSize))
                         }
-                        .frame(height: SettingsViewModel.MaxTextSize + 20)
+                        .frame(height: TextSettingsViewModel.MaxTextSize + 20)
 
                         // Text weight
-                        Picker("Text Weight", selection: $settingsViewModel.textWeight) {
+                        Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
                             ForEach(NoteTextWeight.allCases) { option in
                                 Text(option.rawValue).tag(option)
                             }
@@ -52,8 +52,8 @@ struct SettingsSheet: View {
                     }
                     VStack {
                         // Font
-                        Picker("Font", selection: $settingsViewModel.font) {
-                            ForEach(SettingsViewModel.availableFonts, id: \.self) { option in
+                        Picker("Font", selection: $textSettingsViewModel.font) {
+                            ForEach(TextSettingsViewModel.availableFonts, id: \.self) { option in
                                 Text(option)
                                     .tag(option)
                             }
@@ -64,15 +64,15 @@ struct SettingsSheet: View {
 
                 // Color
                 Section {
-                    Toggle(isOn: $settingsViewModel.useCustomColors, label: {
+                    Toggle(isOn: $textSettingsViewModel.useCustomColors, label: {
                         Text("Use custom colors")
                     })
                     Group {
-                        ColorPicker("Text color", selection: $settingsViewModel.textColor)
-                        ColorPicker("Background color", selection: $settingsViewModel.backgroundColor)
+                        ColorPicker("Text color", selection: $textSettingsViewModel.textColor)
+                        ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor)
                     }
-                    .disabled(!settingsViewModel.useCustomColors)
-                    .opacity(settingsViewModel.useCustomColors ? 1 : 0.5)
+                    .disabled(!textSettingsViewModel.useCustomColors)
+                    .opacity(textSettingsViewModel.useCustomColors ? 1 : 0.5)
                 }
 
                 // Reset
@@ -82,7 +82,7 @@ struct SettingsSheet: View {
                 }.onTapGesture {
                     // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
                     // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
-                    settingsViewModel.resetToDefaults()
+                    textSettingsViewModel.resetToDefaults()
                 }
             }
         }
@@ -90,11 +90,11 @@ struct SettingsSheet: View {
     }
 }
 
-struct SettingsSheet_Previews: PreviewProvider {
+struct TextSettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsSheet()
-                .environmentObject(SettingsViewModel())
+            TextSettingsSheet()
+                .environmentObject(TextSettingsViewModel())
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextView: UIViewRepresentable {
     @Binding var text: String
-    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
 
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
@@ -35,16 +35,16 @@ struct TextView: UIViewRepresentable {
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
         
-        if (settingsViewModel.font == "System") {
-            textView.font = UIFont.systemFont(ofSize: settingsViewModel.textSize, weight: settingsViewModel.textWeight.instance)
+        if (textSettingsViewModel.font == "System") {
+            textView.font = UIFont.systemFont(ofSize: textSettingsViewModel.textSize, weight: textSettingsViewModel.textWeight.instance)
         } else {
-            textView.font = UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: settingsViewModel.font]), size: settingsViewModel.textSize)
-                .withWeight(settingsViewModel.textWeight.instance)
+            textView.font = UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: textSettingsViewModel.font]), size: textSettingsViewModel.textSize)
+                .withWeight(textSettingsViewModel.textWeight.instance)
         }
         
-        if (settingsViewModel.useCustomColors) {
-            textView.textColor = UIColor(settingsViewModel.textColor)
-            textView.backgroundColor = UIColor(settingsViewModel.backgroundColor)
+        if (textSettingsViewModel.useCustomColors) {
+            textView.textColor = UIColor(textSettingsViewModel.textColor)
+            textView.backgroundColor = UIColor(textSettingsViewModel.backgroundColor)
         } else {
             textView.textColor = .label
             textView.backgroundColor = .systemBackground

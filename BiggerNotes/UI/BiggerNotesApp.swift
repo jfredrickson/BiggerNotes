@@ -12,7 +12,7 @@ struct BiggerNotesApp: App {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var noteViewModel = NoteViewModel()
     @StateObject var noteListViewModel = NoteListViewModel()
-    @StateObject var settingsViewModel = SettingsViewModel()
+    @StateObject var textSettingsViewModel = TextSettingsViewModel()
     @StateObject var router = Router.shared
 
     var body: some Scene {
@@ -20,7 +20,7 @@ struct BiggerNotesApp: App {
             NoteList()
                 .environmentObject(noteViewModel)
                 .environmentObject(noteListViewModel)
-                .environmentObject(settingsViewModel)
+                .environmentObject(textSettingsViewModel)
                 .environmentObject(router)
         }
         .onChange(of: scenePhase) { phase in

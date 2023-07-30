@@ -17,11 +17,11 @@
 		A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910930C2895A12800F87E84 /* Note+CoreDataClass.swift */; };
 		A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910930D2895A12800F87E84 /* Note+CoreDataProperties.swift */; };
 		A91093112895A50100F87E84 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91093102895A50100F87E84 /* NoteDetail.swift */; };
-		A910931928962CB200F87E84 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* SettingsSheet.swift */; };
+		A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* TextSettingsSheet.swift */; };
 		A99179112897656100AD3C30 /* NoteListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179102897656100AD3C30 /* NoteListSection.swift */; };
 		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
-		A998861328970A830041462E /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998861228970A830041462E /* SettingsButton.swift */; };
+		A998861328970A830041462E /* TextSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998861228970A830041462E /* TextSettingsButton.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
 		A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */; };
 		A9CE291F291F13E000C66497 /* NoteListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE291E291F13E000C66497 /* NoteListSectionHeader.swift */; };
@@ -29,7 +29,7 @@
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
 		A9EE0EA9289E310000012FE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA8289E310000012FE2 /* Router.swift */; };
 		A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */; };
-		A9EE0EB328A01AF500012FE2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */; };
+		A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +45,13 @@
 		A910930C2895A12800F87E84 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A910930D2895A12800F87E84 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A91093102895A50100F87E84 /* NoteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
-		A910931828962CB200F87E84 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		A910931828962CB200F87E84 /* TextSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsSheet.swift; sourceTree = "<group>"; };
 		A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiggerNotes.entitlements; sourceTree = "<group>"; };
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
 		A99179102897656100AD3C30 /* NoteListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListSection.swift; sourceTree = "<group>"; };
 		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
-		A998861228970A830041462E /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		A998861228970A830041462E /* TextSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsButton.swift; sourceTree = "<group>"; };
 		A9B0D481298C1507005B58B3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
 		A9CE291E291F13E000C66497 /* NoteListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListSectionHeader.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNote.swift; sourceTree = "<group>"; };
 		A9EE0EA8289E310000012FE2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
-		A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,9 +140,9 @@
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
 				A9917914289869F500AD3C30 /* NoteViewModel.swift */,
 				A9EE0EA8289E310000012FE2 /* Router.swift */,
-				A998861228970A830041462E /* SettingsButton.swift */,
-				A910931828962CB200F87E84 /* SettingsSheet.swift */,
-				A9EE0EB228A01AF500012FE2 /* SettingsViewModel.swift */,
+				A998861228970A830041462E /* TextSettingsButton.swift */,
+				A910931828962CB200F87E84 /* TextSettingsSheet.swift */,
+				A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */,
 				A99179162898917500AD3C30 /* View+ErrorAlert.swift */,
 			);
 			path = UI;
@@ -242,9 +242,9 @@
 				A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */,
 				A9CE2921291F143100C66497 /* NoteListViewModel.swift in Sources */,
 				A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */,
-				A998861328970A830041462E /* SettingsButton.swift in Sources */,
+				A998861328970A830041462E /* TextSettingsButton.swift in Sources */,
 				A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */,
-				A910931928962CB200F87E84 /* SettingsSheet.swift in Sources */,
+				A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */,
 				A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */,
 				A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */,
 				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
@@ -256,7 +256,7 @@
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
-				A9EE0EB328A01AF500012FE2 /* SettingsViewModel.swift in Sources */,
+				A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

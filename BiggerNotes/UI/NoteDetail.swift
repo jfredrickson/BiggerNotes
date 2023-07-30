@@ -10,7 +10,7 @@ import SwiftUI
 struct NoteDetail: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var noteViewModel: NoteViewModel
-    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
     @ObservedObject var note: Note
 
     var body: some View {
@@ -23,7 +23,7 @@ struct NoteDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .principal) {
-                SettingsButton()
+                TextSettingsButton()
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 // Delete
@@ -50,7 +50,7 @@ struct NoteDetailView_Previews: PreviewProvider {
         let note = NoteViewModel(withPersistenceController: .preview).notes.first!
         return NavigationView {
             NoteDetail(note: note)
-                .environmentObject(SettingsViewModel())
+                .environmentObject(TextSettingsViewModel())
         }
     }
 }
