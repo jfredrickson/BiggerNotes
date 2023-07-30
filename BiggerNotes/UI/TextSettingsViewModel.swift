@@ -55,6 +55,17 @@ class TextSettingsViewModel: ObservableObject {
         }
     }
     
+    func font(size: CGFloat, weight: UIFont.Weight) -> Font {
+        if (fontName == "System") {
+            let uiFont = UIFont.systemFont(ofSize: size, weight: weight)
+            return Font(uiFont)
+        } else {
+            let uiFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: fontName]), size: size)
+                .withWeight(weight)
+            return Font(uiFont)
+        }
+    }
+    
     func resetToDefaults() {
         textSize = TextSettingsViewModel.DefaultTextSize
         textWeight = TextSettingsViewModel.DefaultTextWeight

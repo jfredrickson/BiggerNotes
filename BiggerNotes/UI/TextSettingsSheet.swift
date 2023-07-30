@@ -32,13 +32,13 @@ struct TextSettingsSheet: View {
                         // Text size
                         HStack {
                             Text("Aa")
-                                .font(.system(size: TextSettingsViewModel.MinTextSize))
+                                .font(textSettingsViewModel.font(size: TextSettingsViewModel.MinTextSize, weight: textSettingsViewModel.textWeight.instance))
                             Slider(
                                 value: $textSettingsViewModel.textSize,
                                 in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
                             )
                             Text("Aa")
-                                .font(.system(size: TextSettingsViewModel.MaxTextSize))
+                                .font(textSettingsViewModel.font(size: TextSettingsViewModel.MaxTextSize, weight: textSettingsViewModel.textWeight.instance))
                         }
                         .frame(height: TextSettingsViewModel.MaxTextSize + 20)
 
