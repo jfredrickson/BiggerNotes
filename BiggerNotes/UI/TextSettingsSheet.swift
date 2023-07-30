@@ -52,7 +52,7 @@ struct TextSettingsSheet: View {
                     }
                     VStack {
                         // Font
-                        Picker("Font", selection: $textSettingsViewModel.font) {
+                        Picker("Font", selection: $textSettingsViewModel.fontName) {
                             ForEach(TextSettingsViewModel.availableFonts, id: \.self) { option in
                                 Text(option)
                                     .tag(option)

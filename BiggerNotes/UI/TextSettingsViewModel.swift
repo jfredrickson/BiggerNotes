@@ -19,15 +19,46 @@ class TextSettingsViewModel: ObservableObject {
 
     @AppStorage("textSize") var textSize = DefaultTextSize
     @AppStorage("textWeight") var textWeight = DefaultTextWeight
-    @AppStorage("font") var font = DefaultFont
+    @AppStorage("font") var fontName = DefaultFont
     @AppStorage("useCustomColors") var useCustomColors = DefaultUseCustomColors
     @AppStorage("textColor") var textColor = DefaultTextColor
     @AppStorage("backgroundColor") var backgroundColor = DefaultBackgroundColor
 
+    var uiFont: UIFont {
+        get {
+            if (fontName == "System") {
+                return UIFont.systemFont(ofSize: textSize, weight: textWeight.instance)
+            } else {
+                return UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: fontName]), size: textSize)
+                    .withWeight(textWeight.instance)
+            }
+        }
+    }
+    
+    var uiTextColor: UIColor {
+        get {
+            if (useCustomColors) {
+                return UIColor(textColor)
+            } else {
+                return .label
+            }
+        }
+    }
+    
+    var uiBackgroundColor: UIColor {
+        get {
+            if (useCustomColors) {
+                return UIColor(backgroundColor)
+            } else {
+                return .systemBackground
+            }
+        }
+    }
+    
     func resetToDefaults() {
         textSize = TextSettingsViewModel.DefaultTextSize
         textWeight = TextSettingsViewModel.DefaultTextWeight
-        font = TextSettingsViewModel.DefaultFont
+        fontName = TextSettingsViewModel.DefaultFont
         useCustomColors = TextSettingsViewModel.DefaultUseCustomColors
     }
     

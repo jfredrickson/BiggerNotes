@@ -34,21 +34,9 @@ struct TextView: UIViewRepresentable {
 
     func updateUIView(_ textView: UITextView, context: Context) {
         textView.text = text
-        
-        if (textSettingsViewModel.font == "System") {
-            textView.font = UIFont.systemFont(ofSize: textSettingsViewModel.textSize, weight: textSettingsViewModel.textWeight.instance)
-        } else {
-            textView.font = UIFont(descriptor: UIFontDescriptor(fontAttributes: [.name: textSettingsViewModel.font]), size: textSettingsViewModel.textSize)
-                .withWeight(textSettingsViewModel.textWeight.instance)
-        }
-        
-        if (textSettingsViewModel.useCustomColors) {
-            textView.textColor = UIColor(textSettingsViewModel.textColor)
-            textView.backgroundColor = UIColor(textSettingsViewModel.backgroundColor)
-        } else {
-            textView.textColor = .label
-            textView.backgroundColor = .systemBackground
-        }
+        textView.font = textSettingsViewModel.uiFont
+        textView.textColor = textSettingsViewModel.uiTextColor
+        textView.backgroundColor = textSettingsViewModel.uiBackgroundColor
     }
 
     func makeCoordinator() -> Coordinator {
