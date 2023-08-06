@@ -11,7 +11,6 @@ import SwiftUI
 struct BiggerNotesApp: App {
     @Environment(\.scenePhase) var scenePhase
     @StateObject var noteViewModel = NoteViewModel()
-    @StateObject var noteListViewModel = NoteListViewModel()
     @StateObject var appSettingsViewModel = AppSettingsViewModel()
     @StateObject var textSettingsViewModel = TextSettingsViewModel()
     @StateObject var router = Router.shared
@@ -20,7 +19,6 @@ struct BiggerNotesApp: App {
         WindowGroup {
             NoteList()
                 .environmentObject(noteViewModel)
-                .environmentObject(noteListViewModel)
                 .environmentObject(appSettingsViewModel)
                 .environmentObject(textSettingsViewModel)
                 .environmentObject(router)

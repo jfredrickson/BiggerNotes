@@ -9,15 +9,15 @@ import SwiftUI
 import CoreData
 
 struct NoteList: View {
-    @EnvironmentObject var noteListViewModel: NoteListViewModel
+    @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
 
     var body: some View {
         NavigationStack(path: $router.path) {
             List {
-                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $noteListViewModel.expandFavoritesSection)
-                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $noteListViewModel.expandNotesSection)
+                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $appSettingsViewModel.expandFavoritesSection)
+                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $appSettingsViewModel.expandNotesSection)
             }
             .task {
                 noteViewModel.prune()
@@ -46,7 +46,7 @@ struct NoteList: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NoteList()
-            .environmentObject(NoteListViewModel())
+            .environmentObject(AppSettingsViewModel())
             .environmentObject(NoteViewModel(withPersistenceController: .preview))
             .environmentObject(Router())
     }
