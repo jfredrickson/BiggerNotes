@@ -30,6 +30,12 @@ struct AppSettingsSheet: View {
                     Toggle(isOn: $appSettingsViewModel.startWithNewNote, label: {
                         Text("Show blank note on start")
                     })
+
+                    Picker("New note button position", selection: $appSettingsViewModel.newNoteButtonPosition) {
+                        ForEach(NewNoteButtonPosition.allCases) { option in
+                            Text("\(option)".capitalized).tag(option)
+                        }
+                    }
                 }
                 
                 Section {

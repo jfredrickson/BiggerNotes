@@ -16,31 +16,50 @@ struct NoteList: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            List {
-                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $appSettingsViewModel.expandFavoritesSection)
-                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $appSettingsViewModel.expandNotesSection)
-            }
-            .task {
-                noteViewModel.prune()
-            }
-            .navigationBarTitle("Notes")
-            .navigationDestination(for: Note.self) { note in
-                NoteDetail(note: note, parentRefreshId: $refreshId)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    AppSettingsButton()
+            ZStack(alignment: .bottomTrailing) {
+                List {
+                    NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $appSettingsViewModel.expandFavoritesSection)
+                    NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $appSettingsViewModel.expandNotesSection)
                 }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                .task {
+                    noteViewModel.prune()
+                }
+                .navigationBarTitle("Notes")
+                .navigationDestination(for: Note.self) { note in
+                    NoteDetail(note: note, parentRefreshId: $refreshId)
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        AppSettingsButton()
+                    }
+                    if appSettingsViewModel.newNoteButtonPosition == .top || appSettingsViewModel.newNoteButtonPosition == .both {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            Button {
+                                router.displayNote(noteViewModel.new())
+                            } label: {
+                                Label("New Note", systemImage: "square.and.pencil")
+                            }
+                        }
+                    }
+                }
+                .id(refreshId)
+                .errorAlert(errorMessage: $noteViewModel.errorMessage)
+                
+                if appSettingsViewModel.newNoteButtonPosition == .bottom || appSettingsViewModel.newNoteButtonPosition == .both {
                     Button {
                         router.displayNote(noteViewModel.new())
                     } label: {
-                        Label("New Note", systemImage: "square.and.pencil")
+                        Image(systemName: "square.and.pencil")
+                            .padding()
+                            .font(.system(.body).weight(.bold))
+                            .background(Color.accentColor)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 5)
                     }
+                    .padding()
                 }
             }
-            .id(refreshId)
-            .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
     }
 }
