@@ -31,7 +31,7 @@ struct BiggerNotesApp: App {
             
             // Start a new note upon app open if that preference is set
             if phase == .active {
-                if appSettingsViewModel.startWithNewNote {
+                if appSettingsViewModel.startWithNewNote && router.path.isEmpty {
                     router.displayNote(noteViewModel.new())
                 }
             }
