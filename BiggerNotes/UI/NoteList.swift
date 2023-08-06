@@ -12,6 +12,7 @@ struct NoteList: View {
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
+    @State private var refreshId = UUID()
 
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -24,7 +25,7 @@ struct NoteList: View {
             }
             .navigationBarTitle("Notes")
             .navigationDestination(for: Note.self) { note in
-                NoteDetail(note: note)
+                NoteDetail(note: note, parentRefreshId: $refreshId)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -38,6 +39,7 @@ struct NoteList: View {
                     }
                 }
             }
+            .id(refreshId)
             .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
     }
