@@ -39,9 +39,9 @@ struct NoteList: View {
                     }
                 }
             }
-            .id(refreshId)
             .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
+        .id(refreshId)
     }
 }
 
