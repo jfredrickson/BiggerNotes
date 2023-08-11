@@ -42,6 +42,18 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "BiggerNotes")
         container.viewContext.automaticallyMergesChangesFromParent = true
+        
+        #if DEBUG
+        do {
+            try container.initializeCloudKitSchema(options: [
+                //.dryRun,
+                //.printSchema
+            ])
+        } catch {
+            let nsError = error as NSError
+            self.errorMessage = nsError.localizedDescription
+        }
+        #endif
 
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
