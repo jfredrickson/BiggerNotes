@@ -18,7 +18,8 @@ struct NoteList: View {
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Note.favorite, ascending: false),
             NSSortDescriptor(keyPath: \Note.modified, ascending: false)
-        ]
+        ],
+        animation: .default
     )
     var sectionedNotes: SectionedFetchResults<String, Note>
     
