@@ -22,6 +22,11 @@ extension Note {
     @NSManaged public var id: UUID
     @NSManaged public var created: Date
     @NSManaged public var modified: Date
+    
+    // Human-friendly indicator of whether the note is a favorite or a non-favorite note.
+    @objc dynamic var categoryName: String {
+        return favorite ? "Favorites" : "Notes"
+    }
 }
 
 extension Note : Identifiable {}

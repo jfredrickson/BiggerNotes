@@ -13,14 +13,14 @@ struct NoteList: View {
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
     
-    @SectionedFetchRequest<Bool, Note>(
-        sectionIdentifier: \.favorite,
+    @SectionedFetchRequest<String, Note>(
+        sectionIdentifier: \.categoryName,
         sortDescriptors: [
             NSSortDescriptor(keyPath: \Note.favorite, ascending: false),
             NSSortDescriptor(keyPath: \Note.modified, ascending: false)
         ]
     )
-    var sectionedNotes: SectionedFetchResults<Bool, Note>
+    var sectionedNotes: SectionedFetchResults<String, Note>
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -31,7 +31,7 @@ struct NoteList: View {
                             NoteListItem(note: note)
                         }
                     } header: {
-                        Text(section.id ? "Favorites" : "Notes")
+                        Text(section.id)
                     }
                 }
             }
