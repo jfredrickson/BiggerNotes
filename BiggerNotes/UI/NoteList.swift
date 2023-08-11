@@ -12,20 +12,34 @@ struct NoteList: View {
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
-    @State private var refreshId = UUID()
-
+    
+    @SectionedFetchRequest<String, Note>(
+        sectionIdentifier: \.categoryName,
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Note.favorite, ascending: false),
+            NSSortDescriptor(keyPath: \Note.modified, ascending: false)
+        ],
+        animation: .default
+    )
+    var notes: SectionedFetchResults<String, Note>
+    
     var body: some View {
         NavigationStack(path: $router.path) {
             List {
-                NoteListSection(notes: noteViewModel.favoriteNotes, sectionHeaderText: "Favorites", sectionHeaderIcon: "star.fill", expanded: $appSettingsViewModel.expandFavoritesSection)
-                NoteListSection(notes: noteViewModel.nonfavoriteNotes, sectionHeaderText: "Notes", sectionHeaderIcon: "note.text", expanded: $appSettingsViewModel.expandNotesSection)
+                ForEach(notes) { section in
+                    Section {
+                        ForEach(section) { note in
+                            NoteListItem(note: note)
+                        }
+                    } header: {
+                        Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
+                    }
+                }
             }
-            .task {
-                noteViewModel.prune()
-            }
+            .listStyle(SidebarListStyle())
             .navigationBarTitle("Notes")
             .navigationDestination(for: Note.self) { note in
-                NoteDetail(note: note, parentRefreshId: $refreshId)
+                NoteDetail(note: note)
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -41,7 +55,6 @@ struct NoteList: View {
             }
             .errorAlert(errorMessage: $noteViewModel.errorMessage)
         }
-        .id(refreshId)
     }
 }
 

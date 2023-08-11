@@ -22,6 +22,7 @@ struct BiggerNotesApp: App {
                 .environmentObject(appSettingsViewModel)
                 .environmentObject(textSettingsViewModel)
                 .environmentObject(router)
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
         .onChange(of: scenePhase) { phase in
             // Save all data upon app close
