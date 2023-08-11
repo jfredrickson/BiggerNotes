@@ -10,11 +10,6 @@ import CoreData
 
 class NoteViewModel: NSObject, ObservableObject {
     private let managedObjectContext: NSManagedObjectContext
-    private let noteController: NSFetchedResultsController<Note>
-
-    @Published private(set) var notes: [Note] = []
-    var favoriteNotes: [Note] { get { notes.filter { note in note.favorite } } }
-    var nonfavoriteNotes: [Note] { get { notes.filter { note in !note.favorite } } }
     @Published var errorMessage: String?
 
     override convenience init() {
@@ -26,25 +21,7 @@ class NoteViewModel: NSObject, ObservableObject {
             self.errorMessage = errorMessage
         }
         self.managedObjectContext = persistenceController.container.viewContext
-        noteController = NSFetchedResultsController(
-            fetchRequest: Note.fetchRequest(),
-            managedObjectContext: managedObjectContext,
-            sectionNameKeyPath: nil,
-            cacheName: "notes"
-        )
         super.init()
-        noteController.delegate = self
-        refresh()
-    }
-
-    // Refresh all notes
-    private func refresh() {
-        do {
-            try noteController.performFetch()
-            notes = noteController.fetchedObjects ?? []
-        } catch {
-            errorMessage = error.localizedDescription
-        }
     }
 
     // Save the entire Core Data context if there are any changes
@@ -91,15 +68,5 @@ class NoteViewModel: NSObject, ObservableObject {
     // Toggle the favorite status of a note
     func toggleFavorite(_ note: Note) {
         note.favorite.toggle()
-        save()
-    }
-}
-
-extension NoteViewModel: NSFetchedResultsControllerDelegate {
-    // Automatically update the notes state when Core Data detects an update
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if let fetchedItems = noteController.fetchedObjects {
-            notes = fetchedItems
-        }
     }
 }
