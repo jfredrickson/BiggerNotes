@@ -28,7 +28,7 @@ struct NoteList: View {
             List {
                 ForEach(notes) { section in
                     Section {
-                        ForEach(section, id: \.id) { note in
+                        ForEach(section) { note in
                             NoteListItem(note: note)
                         }
                     } header: {
