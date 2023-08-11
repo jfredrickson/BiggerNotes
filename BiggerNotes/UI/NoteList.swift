@@ -25,35 +25,56 @@ struct NoteList: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            List {
-                ForEach(notes) { section in
-                    Section {
-                        ForEach(section) { note in
-                            NoteListItem(note: note)
+            ZStack(alignment: .bottomTrailing) {
+                List {
+                    ForEach(notes) { section in
+                        Section {
+                            ForEach(section) { note in
+                                NoteListItem(note: note)
+                            }
+                        } header: {
+                            Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
                         }
-                    } header: {
-                        Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
                     }
                 }
-            }
-            .listStyle(SidebarListStyle())
-            .navigationBarTitle("Notes")
-            .navigationDestination(for: Note.self) { note in
-                NoteDetail(note: note)
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    AppSettingsButton()
+                .listStyle(SidebarListStyle())
+                .navigationBarTitle("Notes")
+                .navigationDestination(for: Note.self) { note in
+                    NoteDetail(note: note)
                 }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                .toolbar {
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+                        AppSettingsButton()
+                    }
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        if (appSettingsViewModel.newNoteButtonPosition.includesTop) {
+                            Button {
+                                router.displayNote(noteViewModel.new())
+                            } label: {
+                                Label("New Note", systemImage: "square.and.pencil")
+                            }
+                        }
+                    }
+                }
+                .errorAlert(errorMessage: $noteViewModel.errorMessage)
+
+                if (appSettingsViewModel.newNoteButtonPosition.includesBottom) {
                     Button {
                         router.displayNote(noteViewModel.new())
                     } label: {
-                        Label("New Note", systemImage: "square.and.pencil")
+                        Image(systemName: "square.and.pencil")
+                            .accessibility(value: Text("New Note"))
+                            .padding()
+                            .font(.system(.body).weight(.bold))
+                            .background(Color.accentColor)
+                            .foregroundColor(.white)
+                            .shadow(radius: 5)
+                            .clipShape(Circle())
                     }
+                    .padding()
                 }
             }
-            .errorAlert(errorMessage: $noteViewModel.errorMessage)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
         }
     }
 }
