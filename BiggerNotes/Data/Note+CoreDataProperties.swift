@@ -27,6 +27,15 @@ extension Note {
     @objc dynamic var categoryName: String {
         return favorite ? "Favorites" : "Notes"
     }
+    
+    override public class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
+        switch key {
+        case "categoryName":
+            return Set(["favorite"])
+        default:
+            return super.keyPathsForValuesAffectingValue(forKey: key)
+        }
+    }
 }
 
 extension Note : Identifiable {}
