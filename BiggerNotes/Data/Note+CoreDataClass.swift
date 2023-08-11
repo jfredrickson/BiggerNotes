@@ -18,4 +18,13 @@ public class Note: NSManagedObject {
             modified = Date()
         }
     }
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        content = ""
+        favorite = false
+        id = UUID()
+        created = Date()
+        modified = Date()
+    }
 }
