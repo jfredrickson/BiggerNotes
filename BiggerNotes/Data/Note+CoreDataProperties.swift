@@ -17,11 +17,11 @@ extension Note {
         return fetchRequest
     }
 
-    @NSManaged public var content: String
+    @NSManaged public var content: String?
     @NSManaged public var favorite: Bool
-    @NSManaged public var id: UUID
-    @NSManaged public var created: Date
-    @NSManaged public var modified: Date
+    @NSManaged public var id: UUID?
+    @NSManaged public var created: Date?
+    @NSManaged public var modified: Date?
     
     // Human-friendly indicator of whether the note is a favorite or a non-favorite note.
     @objc dynamic var categoryName: String {

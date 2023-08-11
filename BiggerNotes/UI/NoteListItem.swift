@@ -14,9 +14,9 @@ struct NoteListItem: View {
     var body: some View {
         NavigationLink(value: note) {
             VStack(alignment: .leading) {
-                Text(note.content)
+                Text(note.content ?? "")
                     .lineLimit(1)
-                Text(dateFormatter.string(from: note.modified))
+                Text(dateFormatter.string(from: note.modified ?? Date()))
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
