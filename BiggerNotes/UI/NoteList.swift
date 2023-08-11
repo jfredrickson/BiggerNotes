@@ -25,9 +25,9 @@ struct NoteList: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             List {
-                ForEach(sectionedNotes) { section in
+                ForEach(sectionedNotes, id: \.id) { section in
                     Section {
-                        ForEach(section) { note in
+                        ForEach(section, id: \.id) { note in
                             NoteListItem(note: note)
                         }
                     } header: {
