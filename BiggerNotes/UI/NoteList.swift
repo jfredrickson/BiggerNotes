@@ -21,14 +21,14 @@ struct NoteList: View {
         ],
         animation: .default
     )
-    var sectionedNotes: SectionedFetchResults<String, Note>
+    var notes: SectionedFetchResults<String, Note>
     
     var body: some View {
         NavigationStack(path: $router.path) {
             List {
-                ForEach(sectionedNotes) { section in
+                ForEach(notes) { section in
                     Section {
-                        ForEach(section) { note in
+                        ForEach(section, id: \.id) { note in
                             NoteListItem(note: note)
                         }
                     } header: {

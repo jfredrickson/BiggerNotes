@@ -49,13 +49,8 @@ class NoteViewModel: NSObject, ObservableObject {
     }
 
     // Create a new note with default values
-    func new(_ content: String = "", favorite: Bool = false) -> Note {
+    func new() -> Note {
         let note = Note(context: managedObjectContext)
-        note.id = UUID()
-        note.created = Date()
-        note.modified = note.created
-        note.content = content
-        note.favorite = favorite
         save()
         return note
     }

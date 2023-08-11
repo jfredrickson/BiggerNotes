@@ -19,6 +19,8 @@ struct NoteListItem: View {
                 Text(dateFormatter.string(from: note.modified ?? Date()))
                     .font(.caption)
                     .foregroundColor(.secondary)
+                Text(note.id?.uuidString ?? "NONE")
+                    .font(.caption)
             }
         }
         .swipeActions(edge: .leading) {
@@ -49,3 +51,4 @@ struct NoteListItem: View {
         return formatter
     }()
 }
+
