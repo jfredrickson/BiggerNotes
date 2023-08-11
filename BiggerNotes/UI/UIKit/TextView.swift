@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TextView: UIViewRepresentable {
-    @Binding var text: String
+    @Binding var text: String?
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
 
     func makeUIView(context: Context) -> UITextView {
@@ -16,7 +16,7 @@ struct TextView: UIViewRepresentable {
         textView.delegate = context.coordinator
         textView.layoutManager.allowsNonContiguousLayout = false // Prevents scroll glitching
 
-        if text.isEmpty {
+        if text != nil && text!.isEmpty {
             textView.becomeFirstResponder()
         }
 
@@ -58,9 +58,9 @@ extension UITextView {
 
 extension TextView {
     class Coordinator: NSObject, UITextViewDelegate {
-        var text: Binding<String>
+        var text: Binding<String?>
 
-        init(_ text: Binding<String>) {
+        init(_ text: Binding<String?>) {
             self.text = text
         }
 

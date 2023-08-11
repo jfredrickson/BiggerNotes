@@ -12,17 +12,13 @@ struct NoteDetail: View {
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
     @ObservedObject var note: Note
-    @Binding var parentRefreshId: UUID
 
     var body: some View {
         VStack {
             TextView(text: $note.content)
             .onDisappear {
                 noteViewModel.save()
-                // Invoke a change on the NoteList state to force a redraw. Without this, the
-                // NoteList view sometimes redraws before the note has had a chance to save,
-                // resulting in a blank row.
-                parentRefreshId = UUID()
+                noteViewModel.prune()
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -52,9 +48,8 @@ struct NoteDetail: View {
 
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let note = NoteViewModel(withPersistenceController: .preview).notes.first!
         return NavigationView {
-            NoteDetail(note: note, parentRefreshId: .constant(UUID()))
+            NoteDetail(note: Note())
                 .environmentObject(TextSettingsViewModel())
         }
     }
