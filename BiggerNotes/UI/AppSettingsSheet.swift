@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIShakeGesture
 
 struct AppSettingsSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @State var isPresentingDeleteConfirmation = false
+    @State var devToolsVisible = false
     
     var body: some View {
         VStack {
@@ -56,6 +58,10 @@ struct AppSettingsSheet: View {
                     DeleteAllNotesButton()
                 }
                 
+                if (devToolsVisible) {
+                    DevToolsSection()
+                }
+                
                 Section {
                 } footer: {
                     VStack {
@@ -75,6 +81,11 @@ struct AppSettingsSheet: View {
             }
         }
         .frame(minWidth: 320, idealWidth: 400, minHeight: 320, idealHeight: 560) // Necessary in order to render popovers properly on iPad
+        .onShake {
+            withAnimation {
+                devToolsVisible.toggle()
+            }
+        }
     }
 }
 

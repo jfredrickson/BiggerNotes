@@ -11,6 +11,8 @@
 		081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232852A76097C009055E2 /* AppSettingsSheet.swift */; };
 		081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232872A7609EA009055E2 /* AppSettingsViewModel.swift */; };
 		0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232892A761508009055E2 /* Bundle+Versions.swift */; };
+		0836AE962A87396300032A60 /* SwiftUIShakeGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 0836AE952A87396300032A60 /* SwiftUIShakeGesture */; };
+		0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836AE972A873B3900032A60 /* DevToolsSection.swift */; };
 		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
 		0878C0042A85A2E20032FCB1 /* NoteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878C0032A85A2E20032FCB1 /* NoteListItem.swift */; };
 		08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */; };
@@ -40,6 +42,7 @@
 		081232852A76097C009055E2 /* AppSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsSheet.swift; sourceTree = "<group>"; };
 		081232872A7609EA009055E2 /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
 		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
+		0836AE972A873B3900032A60 /* DevToolsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSection.swift; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0878C0032A85A2E20032FCB1 /* NoteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItem.swift; sourceTree = "<group>"; };
 		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0836AE962A87396300032A60 /* SwiftUIShakeGesture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +148,7 @@
 				081232892A761508009055E2 /* Bundle+Versions.swift */,
 				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
 				08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */,
+				0836AE972A873B3900032A60 /* DevToolsSection.swift */,
 				A91092FA28959F4F00F87E84 /* NoteList.swift */,
 				0878C0032A85A2E20032FCB1 /* NoteListItem.swift */,
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
@@ -191,6 +196,9 @@
 			dependencies = (
 			);
 			name = BiggerNotes;
+			packageProductDependencies = (
+				0836AE952A87396300032A60 /* SwiftUIShakeGesture */,
+			);
 			productName = BiggerNotes;
 			productReference = A91092F528959F4F00F87E84 /* BiggerNotes.app */;
 			productType = "com.apple.product-type.application";
@@ -219,6 +227,9 @@
 				Base,
 			);
 			mainGroup = A91092EC28959F4F00F87E84;
+			packageReferences = (
+				0836AE942A87396300032A60 /* XCRemoteSwiftPackageReference "swiftui-shake-gesture" */,
+			);
 			productRefGroup = A91092F628959F4F00F87E84 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,6 +263,7 @@
 				A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */,
 				A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */,
 				081232842A7608F3009055E2 /* AppSettingsButton.swift in Sources */,
+				0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */,
 				A998861328970A830041462E /* TextSettingsButton.swift in Sources */,
 				A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */,
 				A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */,
@@ -475,6 +487,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0836AE942A87396300032A60 /* XCRemoteSwiftPackageReference "swiftui-shake-gesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-shake-gesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0836AE952A87396300032A60 /* SwiftUIShakeGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0836AE942A87396300032A60 /* XCRemoteSwiftPackageReference "swiftui-shake-gesture" */;
+			productName = SwiftUIShakeGesture;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A910930328959F5000F87E84 /* BiggerNotes.xcdatamodeld */ = {

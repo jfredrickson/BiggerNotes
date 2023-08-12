@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftui-shake-gesture",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/globulus/swiftui-shake-gesture",
+      "state" : {
+        "revision" : "cee0c7d741cda634c43ecb48224fd2b28914426a",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
