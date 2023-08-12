@@ -23,7 +23,7 @@ struct NoteDetail: View {
             .safeAreaInset(edge: .bottom, spacing: 0) {
                 VStack {}
                 .frame(maxWidth: .infinity)
-                .background(textSettingsViewModel.backgroundColor)
+                .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor : .clear)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
