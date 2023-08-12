@@ -80,4 +80,19 @@ class NoteViewModel: NSObject, ObservableObject {
     func toggleFavorite(_ note: Note) {
         note.favorite.toggle()
     }
+    
+    // Generate some test data for development
+    func generateTestData() {
+        let strings = [
+            "Hello, world",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "012345678901234567890123456789012345678901234567890123456789"
+        ]
+        for i in 0..<10 {
+            let newNote = new()
+            newNote.content = strings[Int.random(in: 0...2)]
+            newNote.favorite = (i % 3 == 0)
+        }
+        save()
+    }
 }
