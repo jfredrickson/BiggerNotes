@@ -9,7 +9,7 @@ import SwiftUI
 
 class TextSettingsViewModel: ObservableObject {
     static let MinTextSize = 20.0
-    static let MaxTextSize = 80.0
+    static let MaxTextSize = 120.0
     static let DefaultTextSize = 50.0
     static let DefaultTextWeight = NoteTextWeight.semibold
     static let DefaultFont = "System"

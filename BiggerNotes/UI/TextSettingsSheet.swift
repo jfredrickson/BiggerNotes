@@ -28,39 +28,36 @@ struct TextSettingsSheet: View {
             Form {
                 // Font options
                 Section {
+                    // Text size
                     VStack {
-                        // Text size
-                        HStack {
-                            Text("Aa")
-                                .font(textSettingsViewModel.font(size: TextSettingsViewModel.MinTextSize, weight: textSettingsViewModel.textWeight.instance))
-                            Slider(
-                                value: $textSettingsViewModel.textSize,
-                                in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
-                            )
-                            Text("Aa")
-                                .font(textSettingsViewModel.font(size: TextSettingsViewModel.MaxTextSize, weight: textSettingsViewModel.textWeight.instance))
-                        }
-                        .frame(height: TextSettingsViewModel.MaxTextSize + 20)
+                        Text("Hi")
+                            .font(textSettingsViewModel.font(size: textSettingsViewModel.textSize, weight: textSettingsViewModel.textWeight.instance))
+                            .baselineOffset(-10)
+                            .frame(height: TextSettingsViewModel.MaxTextSize)
+                        Slider(
+                            value: $textSettingsViewModel.textSize,
+                            in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
+                        )
+                    }
 
-                        // Text weight
-                        Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
-                            ForEach(NoteTextWeight.allCases) { option in
-                                Text(option.rawValue).tag(option)
-                            }
+                    // Text weight
+                    Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
+                        ForEach(NoteTextWeight.allCases) { option in
+                            Text(option.rawValue).tag(option)
                         }
-                        .pickerStyle(.segmented)
                     }
-                    VStack {
-                        // Font
-                        Picker("Font", selection: $textSettingsViewModel.fontName) {
-                            ForEach(TextSettingsViewModel.availableFonts, id: \.self) { option in
-                                Text(option)
-                                    .tag(option)
-                            }
+                    .pickerStyle(.segmented)
+                    
+                    // Font
+                    Picker("Font", selection: $textSettingsViewModel.fontName) {
+                        ForEach(TextSettingsViewModel.availableFonts, id: \.self) { option in
+                            Text(option)
+                                .tag(option)
                         }
-                        .pickerStyle(.automatic)
                     }
+                    .pickerStyle(.automatic)
                 }
+                .listRowSeparator(.hidden)
 
                 // Color
                 Section {
