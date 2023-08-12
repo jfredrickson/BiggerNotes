@@ -59,6 +59,21 @@ class NoteViewModel: NSObject, ObservableObject {
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
     }
+    
+    // Delete all notes
+    func deleteAll() {
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "Note"))
+        batchDeleteRequest.resultType = .resultTypeObjectIDs
+        do {
+            let batchDeleteResult = try managedObjectContext.execute(batchDeleteRequest) as? NSBatchDeleteResult
+            if let result = batchDeleteResult?.result {
+                let deletedNotes = [NSDeletedObjectsKey: result]
+                NSManagedObjectContext.mergeChanges(fromRemoteContextSave: deletedNotes, into: [managedObjectContext])
+            }
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
 
     // Toggle the favorite status of a note
     func toggleFavorite(_ note: Note) {
