@@ -86,7 +86,6 @@ class TextSettingsViewModel: ObservableObject {
         "Menlo",
         "Noteworthy",
         "Optima",
-        "Rockwell",
     ]
 }
 

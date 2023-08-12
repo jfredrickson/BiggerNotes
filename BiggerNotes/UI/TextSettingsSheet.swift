@@ -32,7 +32,6 @@ struct TextSettingsSheet: View {
                     VStack {
                         Text("Hi")
                             .font(textSettingsViewModel.font(size: textSettingsViewModel.textSize, weight: textSettingsViewModel.textWeight.instance))
-                            .baselineOffset(-10)
                             .frame(height: TextSettingsViewModel.MaxTextSize)
                         Slider(
                             value: $textSettingsViewModel.textSize,
