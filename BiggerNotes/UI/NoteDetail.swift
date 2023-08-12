@@ -20,6 +20,11 @@ struct NoteDetail: View {
                 noteViewModel.save()
                 noteViewModel.prune()
             }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                VStack {}
+                .frame(maxWidth: .infinity)
+                .background(textSettingsViewModel.backgroundColor)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
