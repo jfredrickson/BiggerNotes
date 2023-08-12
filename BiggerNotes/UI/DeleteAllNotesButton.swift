@@ -19,7 +19,9 @@ struct DeleteAllNotesButton: View {
         }
         .confirmationDialog("Delete ALL notes?", isPresented: $isPresentingConfirmation) {
             Button("Delete all notes", role: .destructive) {
-                noteViewModel.deleteAll()
+                withAnimation {
+                    noteViewModel.deleteAll()
+                }
             }
         } message: {
             Text("Are you sure? You cannot undo this!")
