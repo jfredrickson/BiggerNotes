@@ -58,6 +58,7 @@ class NoteViewModel: NSObject, ObservableObject {
     // Delete a specific note
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
+        save()
     }
     
     // Delete all notes
