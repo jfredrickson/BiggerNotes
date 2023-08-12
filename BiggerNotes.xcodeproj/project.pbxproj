@@ -13,6 +13,7 @@
 		0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232892A761508009055E2 /* Bundle+Versions.swift */; };
 		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
 		0878C0042A85A2E20032FCB1 /* NoteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878C0032A85A2E20032FCB1 /* NoteListItem.swift */; };
+		08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */; };
 		A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */; };
 		A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092FA28959F4F00F87E84 /* NoteList.swift */; };
 		A91092FD28959F5000F87E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91092FC28959F5000F87E84 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0878C0032A85A2E20032FCB1 /* NoteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItem.swift; sourceTree = "<group>"; };
+		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
 		A91092F528959F4F00F87E84 /* BiggerNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiggerNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerNotesApp.swift; sourceTree = "<group>"; };
 		A91092FA28959F4F00F87E84 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
 				081232892A761508009055E2 /* Bundle+Versions.swift */,
 				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
+				08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */,
 				A91092FA28959F4F00F87E84 /* NoteList.swift */,
 				0878C0032A85A2E20032FCB1 /* NoteListItem.swift */,
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
@@ -264,6 +267,7 @@
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
+				08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */,
 				A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

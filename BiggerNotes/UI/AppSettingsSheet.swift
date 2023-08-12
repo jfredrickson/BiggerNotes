@@ -10,6 +10,7 @@ import SwiftUI
 struct AppSettingsSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
+    @State var isPresentingDeleteConfirmation = false
     
     var body: some View {
         VStack {
@@ -49,6 +50,10 @@ struct AppSettingsSheet: View {
                         // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
                         appSettingsViewModel.resetToDefaults()
                     }
+                }
+                
+                Section {
+                    DeleteAllNotesButton()
                 }
                 
                 Section {
