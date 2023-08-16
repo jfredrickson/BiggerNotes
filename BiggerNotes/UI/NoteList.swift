@@ -75,6 +75,9 @@ struct NoteList: View {
                 }
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
+            .onAppear {
+                noteViewModel.prune()
+            }
         }
     }
 }
