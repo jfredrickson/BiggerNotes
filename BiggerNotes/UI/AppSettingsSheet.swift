@@ -12,7 +12,11 @@ struct AppSettingsSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @State var isPresentingDeleteConfirmation = false
+    #if DEBUG
+    @State var devToolsVisible = true
+    #else
     @State var devToolsVisible = false
+    #endif
     
     var body: some View {
         VStack {
