@@ -18,13 +18,8 @@ struct NoteDetail: View {
             TextView(text: $note.content)
             .onDisappear {
                 noteViewModel.save()
-                noteViewModel.prune()
             }
-            .safeAreaInset(edge: .bottom, spacing: 0) {
-                VStack {}
-                .frame(maxWidth: .infinity)
-                .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor : .clear)
-            }
+            .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor : .clear)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -48,6 +43,7 @@ struct NoteDetail: View {
                 }
             }
         }
+        .toolbarBackground(textSettingsViewModel.useCustomColors ? .visible : .hidden)
     }
 }
 
