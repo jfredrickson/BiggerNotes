@@ -29,16 +29,23 @@ struct TextSettingsSheet: View {
                 Form {
                     // Font options
                     Section {
-                        // Text size
-                        VStack {
+                        // Text preview
+                        HStack {
+                            Spacer()
                             Text("Hi")
                                 .font(Font(textSettingsViewModel.uiFont))
                                 .frame(height: TextSettingsViewModel.MaxTextSize)
-                            Slider(
-                                value: $textSettingsViewModel.textSize,
-                                in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
-                            )
+                            Spacer()
                         }
+                        .foregroundStyle(textSettingsViewModel.textColor)
+                        .background(textSettingsViewModel.backgroundColor)
+                        .cornerRadius(8)
+                        
+                        // Text size
+                        Slider(
+                            value: $textSettingsViewModel.textSize,
+                            in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
+                        )
                         
                         // Text weight
                         Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
