@@ -10,75 +10,76 @@ import SwiftUI
 struct TextSettingsSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
-
+    
     var body: some View {
-        VStack {
-            HStack {
-                Text("Settings")
-                    .font(.system(.headline))
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Done")
-                }
-            }
-            .padding([.top, .leading, .trailing])
-
-            Form {
-                // Font options
-                Section {
-                    // Text size
-                    VStack {
-                        Text("Hi")
-                            .font(textSettingsViewModel.font(size: textSettingsViewModel.textSize, weight: textSettingsViewModel.textWeight.instance))
-                            .frame(height: TextSettingsViewModel.MaxTextSize)
-                        Slider(
-                            value: $textSettingsViewModel.textSize,
-                            in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
-                        )
+        NavigationStack {
+            VStack {
+                HStack {
+                    Text("Settings")
+                        .font(.system(.headline))
+                    Spacer()
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Done")
                     }
-
-                    // Text weight
-                    Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
-                        ForEach(NoteTextWeight.allCases) { option in
-                            Text(option.rawValue).tag(option)
+                }
+                .padding([.top, .leading, .trailing])
+                
+                Form {
+                    // Font options
+                    Section {
+                        // Text size
+                        VStack {
+                            Text("Hi")
+                                .font(Font(textSettingsViewModel.uiFont))
+                                .frame(height: TextSettingsViewModel.MaxTextSize)
+                            Slider(
+                                value: $textSettingsViewModel.textSize,
+                                in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
+                            )
+                        }
+                        
+                        // Text weight
+                        Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
+                            ForEach(textSettingsViewModel.availableWeights) { option in
+                                Text(option.rawValue).tag(option)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        
+                        // Font
+                        NavigationLink {
+                            FontPicker(fontName: $textSettingsViewModel.fontName)
+                                .navigationTitle("Fonts")
+                        } label: {
+                            Text(textSettingsViewModel.fontName)
                         }
                     }
-                    .pickerStyle(.segmented)
+                    .listRowSeparator(.hidden)
                     
-                    // Font
-                    Picker("Font", selection: $textSettingsViewModel.fontName) {
-                        ForEach(TextSettingsViewModel.availableFonts, id: \.self) { option in
-                            Text(option)
-                                .tag(option)
+                    // Color
+                    Section {
+                        Toggle(isOn: $textSettingsViewModel.useCustomColors, label: {
+                            Text("Use custom colors")
+                        })
+                        Group {
+                            ColorPicker("Text color", selection: $textSettingsViewModel.textColor)
+                            ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor)
                         }
+                        .disabled(!textSettingsViewModel.useCustomColors)
+                        .opacity(textSettingsViewModel.useCustomColors ? 1 : 0.5)
                     }
-                    .pickerStyle(.automatic)
-                }
-                .listRowSeparator(.hidden)
-
-                // Color
-                Section {
-                    Toggle(isOn: $textSettingsViewModel.useCustomColors, label: {
-                        Text("Use custom colors")
-                    })
-                    Group {
-                        ColorPicker("Text color", selection: $textSettingsViewModel.textColor)
-                        ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor)
+                    
+                    // Reset
+                    Button {
+                    } label: {
+                        Text("Reset to defaults")
+                    }.onTapGesture {
+                        // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
+                        // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
+                        textSettingsViewModel.resetToDefaults()
                     }
-                    .disabled(!textSettingsViewModel.useCustomColors)
-                    .opacity(textSettingsViewModel.useCustomColors ? 1 : 0.5)
-                }
-
-                // Reset
-                Button {
-                } label: {
-                    Text("Reset to defaults")
-                }.onTapGesture {
-                    // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
-                    // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
-                    textSettingsViewModel.resetToDefaults()
                 }
             }
         }

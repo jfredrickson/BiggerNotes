@@ -14,6 +14,7 @@
 		0836AE962A87396300032A60 /* SwiftUIShakeGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 0836AE952A87396300032A60 /* SwiftUIShakeGesture */; };
 		0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836AE972A873B3900032A60 /* DevToolsSection.swift */; };
 		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
+		0875267C2A93E23C007795F8 /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875267B2A93E23C007795F8 /* FontPicker.swift */; };
 		0878C0042A85A2E20032FCB1 /* NoteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878C0032A85A2E20032FCB1 /* NoteListItem.swift */; };
 		08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */; };
 		A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */; };
@@ -44,6 +45,7 @@
 		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
 		0836AE972A873B3900032A60 /* DevToolsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSection.swift; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		0875267B2A93E23C007795F8 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
 		0878C0032A85A2E20032FCB1 /* NoteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItem.swift; sourceTree = "<group>"; };
 		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
 		A91092F528959F4F00F87E84 /* BiggerNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiggerNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 			children = (
 				A9B0D481298C1507005B58B3 /* TextView.swift */,
 				0847AED42A66FEAB00A60344 /* UIFont.swift */,
+				0875267B2A93E23C007795F8 /* FontPicker.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */,
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
+				0875267C2A93E23C007795F8 /* FontPicker.swift in Sources */,
 				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
 				08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */,
 				A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */,
