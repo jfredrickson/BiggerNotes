@@ -37,8 +37,8 @@ struct TextSettingsSheet: View {
                                 .frame(height: TextSettingsViewModel.MaxTextSize)
                             Spacer()
                         }
-                        .foregroundStyle(textSettingsViewModel.textColor)
-                        .background(textSettingsViewModel.backgroundColor)
+                        .foregroundStyle(Color(textSettingsViewModel.uiTextColor))
+                        .background(Color(textSettingsViewModel.uiBackgroundColor))
                         .cornerRadius(8)
                         
                         // Text size
