@@ -14,18 +14,6 @@ struct TextSettingsSheet: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack {
-                    Text("Settings")
-                        .font(.system(.headline))
-                    Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Done")
-                    }
-                }
-                .padding([.top, .leading, .trailing])
-                
                 Form {
                     // Font options
                     Section {
@@ -86,6 +74,17 @@ struct TextSettingsSheet: View {
                         // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
                         // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
                         textSettingsViewModel.resetToDefaults()
+                    }
+                }
+            }
+            .navigationTitle(Text("Text Settings"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Done")
                     }
                 }
             }
