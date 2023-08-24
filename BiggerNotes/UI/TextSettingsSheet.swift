@@ -26,15 +26,17 @@ struct TextSettingsSheet: View {
                     .foregroundStyle(Color(textSettingsViewModel.uiTextColor))
                     .background(Color(textSettingsViewModel.uiBackgroundColor))
                     .cornerRadius(8)
+                    .listRowSeparator(.hidden)
                     
                     // Text size
                     Slider(
                         value: $textSettingsViewModel.textSize,
                         in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
                     )
+                    .listRowSeparator(.hidden)
                     
                     // Text weight
-                    Picker("Text Weight", selection: $textSettingsViewModel.textWeight) {
+                    Picker("Text weight", selection: $textSettingsViewModel.textWeight) {
                         ForEach(textSettingsViewModel.availableWeights) { option in
                             Text(option.rawValue).tag(option)
                         }
@@ -49,7 +51,6 @@ struct TextSettingsSheet: View {
                         Text(textSettingsViewModel.fontName)
                     }
                 }
-                .listRowSeparator(.hidden)
                 
                 // Color
                 Section {
