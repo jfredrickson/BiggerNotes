@@ -24,7 +24,9 @@ struct NoteDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .principal) {
-                TextSettingsButton()
+                SettingsButton(title: "Text Settings", systemImage: "textformat.size") {
+                    TextSettingsSheet()
+                }
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 // Delete

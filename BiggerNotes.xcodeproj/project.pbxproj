@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		081232842A7608F3009055E2 /* AppSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232832A7608F3009055E2 /* AppSettingsButton.swift */; };
 		081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232852A76097C009055E2 /* AppSettingsSheet.swift */; };
 		081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232872A7609EA009055E2 /* AppSettingsViewModel.swift */; };
 		0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232892A761508009055E2 /* Bundle+Versions.swift */; };
@@ -17,6 +16,8 @@
 		0875267C2A93E23C007795F8 /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875267B2A93E23C007795F8 /* FontPicker.swift */; };
 		0878C0042A85A2E20032FCB1 /* NoteListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878C0032A85A2E20032FCB1 /* NoteListItem.swift */; };
 		08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */; };
+		08D93EAF2A97B59A0083CE0F /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */; };
+		08D93EB12A97BDA10083CE0F /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D93EB02A97BDA10083CE0F /* SettingsButton.swift */; };
 		A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */; };
 		A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91092FA28959F4F00F87E84 /* NoteList.swift */; };
 		A91092FD28959F5000F87E84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91092FC28959F5000F87E84 /* Assets.xcassets */; };
@@ -29,7 +30,6 @@
 		A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* TextSettingsSheet.swift */; };
 		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
-		A998861328970A830041462E /* TextSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998861228970A830041462E /* TextSettingsButton.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
 		A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */; };
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
@@ -39,7 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		081232832A7608F3009055E2 /* AppSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsButton.swift; sourceTree = "<group>"; };
 		081232852A76097C009055E2 /* AppSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsSheet.swift; sourceTree = "<group>"; };
 		081232872A7609EA009055E2 /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
 		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
@@ -48,6 +47,8 @@
 		0875267B2A93E23C007795F8 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
 		0878C0032A85A2E20032FCB1 /* NoteListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListItem.swift; sourceTree = "<group>"; };
 		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
+		08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
+		08D93EB02A97BDA10083CE0F /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		A91092F528959F4F00F87E84 /* BiggerNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiggerNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggerNotesApp.swift; sourceTree = "<group>"; };
 		A91092FA28959F4F00F87E84 /* NoteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteList.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
 		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
-		A998861228970A830041462E /* TextSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsButton.swift; sourceTree = "<group>"; };
 		A9B0D481298C1507005B58B3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
 		A9EE0EA3289B4BA800012FE2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -143,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				A9B0D483298C160F005B58B3 /* UIKit */,
-				081232832A7608F3009055E2 /* AppSettingsButton.swift */,
 				081232852A76097C009055E2 /* AppSettingsSheet.swift */,
 				081232872A7609EA009055E2 /* AppSettingsViewModel.swift */,
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
@@ -156,7 +155,8 @@
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
 				A9917914289869F500AD3C30 /* NoteViewModel.swift */,
 				A9EE0EA8289E310000012FE2 /* Router.swift */,
-				A998861228970A830041462E /* TextSettingsButton.swift */,
+				08D93EB02A97BDA10083CE0F /* SettingsButton.swift */,
+				08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */,
 				A910931828962CB200F87E84 /* TextSettingsSheet.swift */,
 				A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */,
 				A99179162898917500AD3C30 /* View+ErrorAlert.swift */,
@@ -265,15 +265,15 @@
 				081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */,
 				A910930E2895A12800F87E84 /* Note+CoreDataClass.swift in Sources */,
 				A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */,
-				081232842A7608F3009055E2 /* AppSettingsButton.swift in Sources */,
 				0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */,
-				A998861328970A830041462E /* TextSettingsButton.swift in Sources */,
+				08D93EB12A97BDA10083CE0F /* SettingsButton.swift in Sources */,
 				A91092FB28959F4F00F87E84 /* NoteList.swift in Sources */,
 				A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */,
 				0878C0042A85A2E20032FCB1 /* NoteListItem.swift in Sources */,
 				0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */,
 				A91092F928959F4F00F87E84 /* BiggerNotesApp.swift in Sources */,
 				A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */,
+				08D93EAF2A97B59A0083CE0F /* SettingsSheet.swift in Sources */,
 				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
 				A91093112895A50100F87E84 /* NoteDetail.swift in Sources */,
 				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,

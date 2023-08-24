@@ -9,83 +9,67 @@ import SwiftUI
 import SwiftUIShakeGesture
 
 struct AppSettingsSheet: View {
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
-    @State var isPresentingDeleteConfirmation = false
+    @EnvironmentObject private var appSettingsViewModel: AppSettingsViewModel
+    @State private var isPresentingDeleteConfirmation = false
     #if DEBUG
-    @State var devToolsVisible = true
+    @State private var devToolsVisible = true
     #else
-    @State var devToolsVisible = false
+    @State private var devToolsVisible = false
     #endif
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Form {
-                    Section {
-                        Toggle(isOn: $appSettingsViewModel.startWithNewNote, label: {
-                            Text("Show blank note on start")
-                        })
-                        
-                        Picker(selection: $appSettingsViewModel.newNoteButtonPosition) {
-                            ForEach(NewNoteButtonPosition.allCases) { position in
-                                Text(position.text)
-                            }
-                        } label: {
-                            Text("New note button")
+        SettingsSheet(title: "App Settings") {
+            Form {
+                Section {
+                    Toggle(isOn: $appSettingsViewModel.startWithNewNote, label: {
+                        Text("Show blank note on start")
+                    })
+                    
+                    Picker(selection: $appSettingsViewModel.newNoteButtonPosition) {
+                        ForEach(NewNoteButtonPosition.allCases) { position in
+                            Text(position.text)
                         }
-                    }
-                    
-                    Section {
-                        Button {
-                        } label: {
-                            Text("Reset to defaults")
-                        }.onTapGesture {
-                            // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
-                            // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
-                            appSettingsViewModel.resetToDefaults()
-                        }
-                    }
-                    
-                    Section {
-                        DeleteAllNotesButton()
-                    }
-                    
-                    if (devToolsVisible) {
-                        DevToolsSection()
-                    }
-                    
-                    Section {
-                    } footer: {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Text("Version \(Bundle.main.versionNumber)")
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("Build \(Bundle.main.buildNumber)")
-                                Spacer()
-                            }
-                        }
-                    }
-                    
-                }
-            }
-            .navigationTitle(Text("App Settings"))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
                     } label: {
-                        Text("Done")
+                        Text("New note button")
+                    }
+                }
+                
+                Section {
+                    Button {
+                    } label: {
+                        Text("Reset to defaults")
+                    }.onTapGesture {
+                        // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
+                        // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
+                        appSettingsViewModel.resetToDefaults()
+                    }
+                }
+                
+                Section {
+                    DeleteAllNotesButton()
+                }
+                
+                if (devToolsVisible) {
+                    DevToolsSection()
+                }
+                
+                Section {
+                } footer: {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("Version \(Bundle.main.versionNumber)")
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("Build \(Bundle.main.buildNumber)")
+                            Spacer()
+                        }
                     }
                 }
             }
         }
-        .frame(minWidth: 320, idealWidth: 400, minHeight: 320, idealHeight: 560) // Necessary in order to render popovers properly on iPad
         .onShake {
             withAnimation {
                 devToolsVisible.toggle()

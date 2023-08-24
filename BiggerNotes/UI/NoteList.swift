@@ -44,7 +44,9 @@ struct NoteList: View {
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
-                        AppSettingsButton()
+                        SettingsButton(title: "App Settings") {
+                            AppSettingsSheet()
+                        }
                     }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         if (appSettingsViewModel.newNoteButtonPosition.includesTop) {
