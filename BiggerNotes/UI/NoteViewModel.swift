@@ -54,6 +54,18 @@ class NoteViewModel: NSObject, ObservableObject {
         save()
         return note
     }
+    
+    // Trash a specific note
+    func trash(_ note: Note) {
+        note.trashed = true
+        save()
+    }
+    
+    // Restore a specific note from the trash
+    func restore(_ note: Note) {
+        note.trashed = false
+        save()
+    }
 
     // Delete a specific note
     func delete(_ note: Note) {
