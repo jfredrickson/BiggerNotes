@@ -31,7 +31,7 @@ struct NoteList: View {
                     ForEach(notes) { section in
                         Section {
                             ForEach(section) { note in
-                                NoteListItem(note: note)
+                                NoteLink(note: note)
                             }
                         } header: {
                             Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
