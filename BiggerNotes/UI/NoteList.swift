@@ -86,10 +86,13 @@ struct NoteList: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    static var viewContext = PersistenceController.preview.container.viewContext
+    
     static var previews: some View {
         NoteList()
+            .environment(\.managedObjectContext, viewContext)
             .environmentObject(AppSettingsViewModel())
-            .environmentObject(NoteViewModel(withPersistenceController: .preview))
+            .environmentObject(NoteViewModel())
             .environmentObject(Router())
     }
 }
