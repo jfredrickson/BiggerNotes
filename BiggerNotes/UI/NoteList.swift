@@ -19,6 +19,7 @@ struct NoteList: View {
             NSSortDescriptor(keyPath: \Note.favorite, ascending: false),
             NSSortDescriptor(keyPath: \Note.modified, ascending: false)
         ],
+        predicate: NSPredicate(format: "trashed == NO"),
         animation: .default
     )
     var notes: SectionedFetchResults<String, Note>
