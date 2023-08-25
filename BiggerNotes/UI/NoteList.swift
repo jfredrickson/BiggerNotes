@@ -85,7 +85,7 @@ struct NoteList: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct NoteList_Previews: PreviewProvider {
     static var viewContext = PersistenceController.preview.container.viewContext
     
     static var previews: some View {
