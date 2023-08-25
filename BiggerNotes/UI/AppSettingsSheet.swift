@@ -9,29 +9,16 @@ import SwiftUI
 import SwiftUIShakeGesture
 
 struct AppSettingsSheet: View {
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
-    @State var isPresentingDeleteConfirmation = false
+    @EnvironmentObject private var appSettingsViewModel: AppSettingsViewModel
+    @State private var isPresentingDeleteConfirmation = false
     #if DEBUG
-    @State var devToolsVisible = true
+    @State private var devToolsVisible = true
     #else
-    @State var devToolsVisible = false
+    @State private var devToolsVisible = false
     #endif
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Settings")
-                    .font(.system(.headline))
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Done")
-                }
-            }
-            .padding([.top, .leading, .trailing])
-
+        SettingsSheet(title: "App Settings") {
             Form {
                 Section {
                     Toggle(isOn: $appSettingsViewModel.startWithNewNote, label: {
@@ -81,10 +68,8 @@ struct AppSettingsSheet: View {
                         }
                     }
                 }
-
             }
         }
-        .frame(minWidth: 320, idealWidth: 400, minHeight: 320, idealHeight: 560) // Necessary in order to render popovers properly on iPad
         .onShake {
             withAnimation {
                 devToolsVisible.toggle()

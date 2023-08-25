@@ -24,7 +24,9 @@ struct NoteDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .principal) {
-                TextSettingsButton()
+                SettingsButton(title: "Text Settings", systemImage: "textformat.size") {
+                    TextSettingsSheet()
+                }
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 // Delete
@@ -50,7 +52,8 @@ struct NoteDetail: View {
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         return NavigationView {
-            NoteDetail(note: Note())
+            NoteDetail(note: NoteViewModel(withPersistenceController: .preview).new())
+                .environmentObject(NoteViewModel(withPersistenceController: .preview))
                 .environmentObject(TextSettingsViewModel())
         }
     }
