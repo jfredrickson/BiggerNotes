@@ -69,7 +69,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         }
         .frame(idealWidth: .infinity, maxWidth: .infinity)
         .animation(.linear, value: isShowing)
-        .background(Color.orange)
+        .background(Color.gray)
         .foregroundColor(.white)
         .cornerRadius(8)
         .shadow(radius: 5)
