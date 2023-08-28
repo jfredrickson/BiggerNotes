@@ -88,9 +88,13 @@ class NoteViewModel: NSObject, ObservableObject {
         save()
     }
     
-    // Delete all notes
-    func deleteAll() {
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "Note"))
+    // Delete all notes, optionally only deleting trashed notes
+    func deleteAll(onlyTrashed: Bool = false) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        if onlyTrashed {
+            fetchRequest.predicate = NSPredicate(format: "trashed == YES")
+        }
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest.resultType = .resultTypeObjectIDs
         do {
             let batchDeleteResult = try managedObjectContext.execute(batchDeleteRequest) as? NSBatchDeleteResult
