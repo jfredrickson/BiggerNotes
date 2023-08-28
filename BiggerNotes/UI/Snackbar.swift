@@ -67,7 +67,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
                 .padding(10)
             }
         }
-        .frame(idealWidth: .infinity, maxWidth: .infinity)
+        .frame(idealWidth: .infinity, maxWidth: .infinity, minHeight: 50)
         .animation(.linear, value: isShowing)
         .background(Color.gray)
         .foregroundColor(.white)
@@ -76,7 +76,12 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         .fixedSize(horizontal: false, vertical: true)
         .offset(y: isShowing ? offset : UIScreen.main.bounds.height)
         .padding()
-        .onReceive(timer) { _ in
+        .onAppear {
+            if isShowing {
+                startTimer()
+            }
+        }
+        .onReceive(timer) { t in
             timeElapsed += 0.1
         }
         .onChange(of: timeElapsed) { _ in
@@ -89,7 +94,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         .onChange(of: isShowing) { _ in
             if timeout > 0 {
                 if isShowing {
-                    resetTimer()
+                    startTimer()
                 } else {
                     stopTimer()
                 }
@@ -120,18 +125,14 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
     }
     
     func startTimer() {
+        timeElapsed = 0
         timer = Timer.publish(every: 0.1, on: .main, in: .default)
         timerConnection = timer.connect()
     }
     
     func stopTimer() {
         timerConnection?.cancel()
-    }
-    
-    func resetTimer() {
-        timeElapsed = 0
-        stopTimer()
-        startTimer()
+        timerConnection = nil
     }
 }
 

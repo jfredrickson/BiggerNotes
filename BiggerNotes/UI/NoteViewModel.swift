@@ -72,6 +72,7 @@ class NoteViewModel: NSObject, ObservableObject {
         if let recentlyTrashedNote {
             restore(recentlyTrashedNote)
         }
+        recentlyTrashedNote = nil
     }
     
     // Restore a specific note from the trash
