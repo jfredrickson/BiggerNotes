@@ -49,6 +49,7 @@
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0875267B2A93E23C007795F8 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
 		089352272A9C4D4900D22E99 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		0893522A2A9CFDB500D22E99 /* BiggerNotes 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "BiggerNotes 2.xcdatamodel"; sourceTree = "<group>"; };
 		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
 		08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		08D93EB02A97BDA10083CE0F /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
@@ -527,9 +528,10 @@
 		A910930328959F5000F87E84 /* BiggerNotes.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0893522A2A9CFDB500D22E99 /* BiggerNotes 2.xcdatamodel */,
 				A910930428959F5000F87E84 /* BiggerNotes.xcdatamodel */,
 			);
-			currentVersion = A910930428959F5000F87E84 /* BiggerNotes.xcdatamodel */;
+			currentVersion = 0893522A2A9CFDB500D22E99 /* BiggerNotes 2.xcdatamodel */;
 			path = BiggerNotes.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
