@@ -11,7 +11,7 @@ import CoreData
 class NoteViewModel: NSObject, ObservableObject {
     private let managedObjectContext: NSManagedObjectContext
     @Published var errorMessage: String?
-    var recentlyTrashedNote: Note?
+    @Published var recentlyTrashedNote: Note?
     
     override convenience init() {
         self.init(withPersistenceController: PersistenceController.shared)

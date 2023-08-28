@@ -74,7 +74,9 @@ struct NoteList: View {
                 Snackbar(isShowing: $showUndoTrashSnackbar, timeout: 5) {
                     Text("Deleted note.")
                 } action: {
-                    noteViewModel.restoreRecentlyTrashedNote()
+                    withAnimation {
+                        noteViewModel.restoreRecentlyTrashedNote()
+                    }
                     showUndoTrashSnackbar.toggle()
                 } actionLabel: {
                     HStack {
@@ -85,15 +87,17 @@ struct NoteList: View {
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear {
-                if let recentlyVisitedNote = router.path.last, recentlyVisitedNote.trashed {
-                    withAnimation {
-                        showUndoTrashSnackbar = true
-                    }
-                }
                 noteViewModel.prune()
             }
             .onDisappear {
                 showUndoTrashSnackbar = false
+            }
+            .onChange(of: noteViewModel.recentlyTrashedNote) { trashedNote in
+                if trashedNote != nil {
+                    withAnimation {
+                        showUndoTrashSnackbar = true
+                    }
+                }
             }
         }
     }
