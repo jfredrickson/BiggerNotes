@@ -11,7 +11,8 @@ import CoreData
 class NoteViewModel: NSObject, ObservableObject {
     private let managedObjectContext: NSManagedObjectContext
     @Published var errorMessage: String?
-
+    var recentlyTrashedNote: Note?
+    
     override convenience init() {
         self.init(withPersistenceController: PersistenceController.shared)
     }
@@ -55,21 +56,35 @@ class NoteViewModel: NSObject, ObservableObject {
         return note
     }
     
-    // Trash a specific note
+    // Trash a specific note, or just completely delete it if it's empty
     func trash(_ note: Note) {
-        note.trashed = true
-        save()
+        if let content = note.content, !content.isEmpty {
+            note.trashed = true
+            self.recentlyTrashedNote = note
+            save()
+        } else {
+            delete(note)
+        }
+    }
+    
+    // Restore the most recently trashed note
+    func restoreRecentlyTrashedNote() {
+        if let recentlyTrashedNote {
+            restore(recentlyTrashedNote)
+        }
     }
     
     // Restore a specific note from the trash
     func restore(_ note: Note) {
         note.trashed = false
+        recentlyTrashedNote = nil
         save()
     }
 
     // Delete a specific note
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
+        recentlyTrashedNote = nil
         save()
     }
     
