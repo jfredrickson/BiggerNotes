@@ -82,7 +82,6 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
             }
         }
         .onReceive(timer) { t in
-            print("--- timer running \(t)")
             timeElapsed += 0.1
         }
         .onChange(of: timeElapsed) { _ in
