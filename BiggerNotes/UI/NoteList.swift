@@ -84,6 +84,7 @@ struct NoteList: View {
                         Text("Undo")
                     }
                 }
+                .id(noteViewModel.recentlyTrashedNote)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear {
@@ -93,10 +94,8 @@ struct NoteList: View {
                 showUndoTrashSnackbar = false
             }
             .onChange(of: noteViewModel.recentlyTrashedNote) { trashedNote in
-                if trashedNote != nil {
-                    withAnimation {
-                        showUndoTrashSnackbar = true
-                    }
+                withAnimation {
+                    showUndoTrashSnackbar = (trashedNote != nil)
                 }
             }
         }
