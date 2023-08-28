@@ -67,7 +67,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
                 .padding(10)
             }
         }
-        .frame(idealWidth: .infinity, maxWidth: .infinity)
+        .frame(idealWidth: .infinity, maxWidth: .infinity, minHeight: 50)
         .animation(.linear, value: isShowing)
         .background(Color.gray)
         .foregroundColor(.white)
