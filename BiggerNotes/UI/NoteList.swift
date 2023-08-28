@@ -12,6 +12,7 @@ struct NoteList: View {
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
+    @State var showUndoTrashSnackbar = false
     
     @SectionedFetchRequest<String, Note>(
         sectionIdentifier: \.categoryName,
@@ -19,6 +20,7 @@ struct NoteList: View {
             NSSortDescriptor(keyPath: \Note.favorite, ascending: false),
             NSSortDescriptor(keyPath: \Note.modified, ascending: false)
         ],
+        predicate: NSPredicate(format: "trashed == NO"),
         animation: .default
     )
     var notes: SectionedFetchResults<String, Note>
@@ -30,7 +32,7 @@ struct NoteList: View {
                     ForEach(notes) { section in
                         Section {
                             ForEach(section) { note in
-                                NoteListItem(note: note)
+                                NoteLink(note: note)
                             }
                         } header: {
                             Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
@@ -61,34 +63,54 @@ struct NoteList: View {
                 .errorAlert(errorMessage: $noteViewModel.errorMessage)
 
                 if (appSettingsViewModel.newNoteButtonPosition.includesBottom) {
-                    Button {
+                    FloatingButton(offset: CGSize(width: 0, height: showUndoTrashSnackbar ? -60 : 0)) {
                         router.displayNote(noteViewModel.new())
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .accessibility(value: Text("New Note"))
-                            .padding()
-                            .font(.system(.body).weight(.bold))
-                            .background(Color.accentColor)
-                            .foregroundColor(.white)
-                            .shadow(radius: 5)
-                            .clipShape(Circle())
                     }
-                    .padding()
+                }
+                
+                Snackbar(isShowing: $showUndoTrashSnackbar, timeout: 5) {
+                    Text("Deleted note.")
+                } action: {
+                    withAnimation {
+                        noteViewModel.restoreRecentlyTrashedNote()
+                    }
+                    showUndoTrashSnackbar.toggle()
+                } actionLabel: {
+                    HStack {
+                        Image(systemName: "arrow.uturn.backward.circle")
+                        Text("Undo")
+                    }
                 }
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear {
                 noteViewModel.prune()
             }
+            .onDisappear {
+                showUndoTrashSnackbar = false
+            }
+            .onChange(of: noteViewModel.recentlyTrashedNote) { trashedNote in
+                if trashedNote != nil {
+                    withAnimation {
+                        showUndoTrashSnackbar = true
+                    }
+                }
+            }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct NoteList_Previews: PreviewProvider {
+    static var viewContext = PersistenceController.preview.container.viewContext
+    
     static var previews: some View {
         NoteList()
+            .environment(\.managedObjectContext, viewContext)
             .environmentObject(AppSettingsViewModel())
-            .environmentObject(NoteViewModel(withPersistenceController: .preview))
+            .environmentObject(NoteViewModel())
             .environmentObject(Router())
     }
 }

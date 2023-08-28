@@ -11,7 +11,8 @@ import CoreData
 class NoteViewModel: NSObject, ObservableObject {
     private let managedObjectContext: NSManagedObjectContext
     @Published var errorMessage: String?
-
+    @Published var recentlyTrashedNote: Note?
+    
     override convenience init() {
         self.init(withPersistenceController: PersistenceController.shared)
     }
@@ -54,16 +55,46 @@ class NoteViewModel: NSObject, ObservableObject {
         save()
         return note
     }
+    
+    // Trash a specific note, or just completely delete it if it's empty
+    func trash(_ note: Note) {
+        if let content = note.content, !content.isEmpty {
+            note.trashed = true
+            self.recentlyTrashedNote = note
+            save()
+        } else {
+            delete(note)
+        }
+    }
+    
+    // Restore the most recently trashed note
+    func restoreRecentlyTrashedNote() {
+        if let recentlyTrashedNote {
+            restore(recentlyTrashedNote)
+        }
+    }
+    
+    // Restore a specific note from the trash
+    func restore(_ note: Note) {
+        note.trashed = false
+        recentlyTrashedNote = nil
+        save()
+    }
 
     // Delete a specific note
     func delete(_ note: Note) {
         managedObjectContext.delete(note)
+        recentlyTrashedNote = nil
         save()
     }
     
-    // Delete all notes
-    func deleteAll() {
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "Note"))
+    // Delete all notes, optionally only deleting trashed notes
+    func deleteAll(onlyTrashed: Bool = false) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        if onlyTrashed {
+            fetchRequest.predicate = NSPredicate(format: "trashed == YES")
+        }
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         batchDeleteRequest.resultType = .resultTypeObjectIDs
         do {
             let batchDeleteResult = try managedObjectContext.execute(batchDeleteRequest) as? NSBatchDeleteResult

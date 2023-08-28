@@ -29,12 +29,12 @@ struct NoteDetail: View {
                 }
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                // Delete
+                // Trash
                 Button {
-                    noteViewModel.delete(note)
+                    noteViewModel.trash(note)
                     dismiss()
                 } label: {
-                    Label("Delete", systemImage: "trash")
+                    Label("Trash", systemImage: "trash")
                 }
                 // Favorite
                 Button {

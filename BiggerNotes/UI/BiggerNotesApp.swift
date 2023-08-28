@@ -25,8 +25,9 @@ struct BiggerNotesApp: App {
                 .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
         .onChange(of: scenePhase) { phase in
-            // Save all data upon app close
+            // Delete trashed notes and save all data upon app close
             if phase == .background {
+                noteViewModel.deleteAll(onlyTrashed: true)
                 noteViewModel.save()
             }
             

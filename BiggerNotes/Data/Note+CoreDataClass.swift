@@ -27,5 +27,6 @@ public class Note: NSManagedObject {
         id = UUID()
         created = Date()
         modified = Date()
+        trashed = false
     }
 }

@@ -25,6 +25,7 @@ struct PersistenceController {
             newNote.created = Date()
             newNote.modified = newNote.created
             newNote.favorite = (i % 3 == 0)
+            newNote.trashed = (i % 5 == 0)
         }
         do {
             try viewContext.save()
