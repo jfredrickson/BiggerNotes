@@ -14,6 +14,7 @@
 		0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836AE972A873B3900032A60 /* DevToolsSection.swift */; };
 		0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0847AED42A66FEAB00A60344 /* UIFont.swift */; };
 		0875267C2A93E23C007795F8 /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0875267B2A93E23C007795F8 /* FontPicker.swift */; };
+		089352282A9C4D4900D22E99 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089352272A9C4D4900D22E99 /* FloatingButton.swift */; };
 		08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */; };
 		08D93EAF2A97B59A0083CE0F /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */; };
 		08D93EB12A97BDA10083CE0F /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D93EB02A97BDA10083CE0F /* SettingsButton.swift */; };
@@ -47,6 +48,7 @@
 		0836AE972A873B3900032A60 /* DevToolsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSection.swift; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		0875267B2A93E23C007795F8 /* FontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPicker.swift; sourceTree = "<group>"; };
+		089352272A9C4D4900D22E99 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllNotesButton.swift; sourceTree = "<group>"; };
 		08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		08D93EB02A97BDA10083CE0F /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
 				08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */,
 				0836AE972A873B3900032A60 /* DevToolsSection.swift */,
+				089352272A9C4D4900D22E99 /* FloatingButton.swift */,
 				08D93EB62A9860180083CE0F /* NoteCell.swift */,
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
 				08D93EB42A985FD90083CE0F /* NoteLink.swift */,
@@ -284,6 +287,7 @@
 				08D93EAF2A97B59A0083CE0F /* SettingsSheet.swift in Sources */,
 				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
 				A91093112895A50100F87E84 /* NoteDetail.swift in Sources */,
+				089352282A9C4D4900D22E99 /* FloatingButton.swift in Sources */,
 				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
 				081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */,
