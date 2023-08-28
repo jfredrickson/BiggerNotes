@@ -19,6 +19,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .default)
     @State private var timeElapsed: Double = 0
     private var timerStartDate = Date.now
+    @State private var offset = CGFloat.zero
     
     init(
         isShowing: Binding<Bool>,
@@ -73,7 +74,7 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         .cornerRadius(8)
         .shadow(radius: 5)
         .fixedSize(horizontal: false, vertical: true)
-        .offset(y: isShowing ? 0 : UIScreen.main.bounds.height)
+        .offset(y: isShowing ? offset : UIScreen.main.bounds.height)
         .padding()
         .onReceive(timer) { _ in
             timeElapsed += 0.1
@@ -93,7 +94,29 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
                     stopTimer()
                 }
             }
+            if !isShowing {
+                offset = 0
+            }
         }
+        .gesture(
+            DragGesture()
+                .onChanged { gesture in
+                    if gesture.translation.height > 0 {
+                        offset = gesture.translation.height
+                    }
+                }
+                .onEnded { value in
+                    if offset > 30 {
+                        withAnimation {
+                            isShowing = false
+                        }
+                    } else {
+                        withAnimation {
+                            offset = 0
+                        }
+                    }
+                }
+        )
     }
     
     func startTimer() {
