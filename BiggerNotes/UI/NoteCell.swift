@@ -14,8 +14,9 @@ struct NoteCell: View {
         VStack(alignment: .leading) {
             Text(note.content?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
                 .lineLimit(1)
+                .font(.headline)
             Text(dateFormatter.string(from: note.modified ?? Date()))
-                .font(.caption)
+                .font(.subheadline)
                 .foregroundColor(.secondary)
         }
     }
