@@ -12,7 +12,7 @@ struct NoteCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(note.content ?? "")
+            Text(note.content?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
                 .lineLimit(1)
             Text(dateFormatter.string(from: note.modified ?? Date()))
                 .font(.caption)
