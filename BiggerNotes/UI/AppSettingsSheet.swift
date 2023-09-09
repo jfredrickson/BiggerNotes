@@ -36,12 +36,9 @@ struct AppSettingsSheet: View {
                 
                 Section {
                     Button {
+                        appSettingsViewModel.resetToDefaults()
                     } label: {
                         Text("Reset to defaults")
-                    }.onTapGesture {
-                        // Executing this in onTapGesture instead of the button action is a workaround to avoid modifying state during view rendering
-                        // Reference: https://www.hackingwithswift.com/quick-start/swiftui/how-to-fix-modifying-state-during-view-update-this-will-cause-undefined-behavior
-                        appSettingsViewModel.resetToDefaults()
                     }
                 }
                 
