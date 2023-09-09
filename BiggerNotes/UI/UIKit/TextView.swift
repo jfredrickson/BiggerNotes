@@ -33,7 +33,13 @@ struct TextView: UIViewRepresentable {
     }
 
     func updateUIView(_ textView: UITextView, context: Context) {
-        textView.text = text
+        // Avoid duplicate updates due to SwiftUI triggering updateUIView and UIKit triggering textViewDidChange
+        if textView.text != text {
+            // Preserve selected range so cursor is reinserted at the correct position after updating
+            let selectedRange = textView.selectedRange
+            textView.text = text
+            textView.selectedRange = selectedRange
+        }
         textView.font = textSettingsViewModel.uiFont
         textView.textColor = textSettingsViewModel.uiTextColor
         textView.backgroundColor = textSettingsViewModel.uiBackgroundColor
