@@ -32,6 +32,14 @@ struct AppSettingsSheet: View {
                     } label: {
                         Text("New note button")
                     }
+                    
+                    Picker(selection: $appSettingsViewModel.listDensity) {
+                        ForEach(ListDensity.allCases) { density in
+                            Text(String(describing: density))
+                        }
+                    } label: {
+                        Text("Note list density")
+                    }
                 }
                 
                 Section {
