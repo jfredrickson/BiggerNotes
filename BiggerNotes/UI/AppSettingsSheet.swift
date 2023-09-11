@@ -27,7 +27,7 @@ struct AppSettingsSheet: View {
                     
                     Picker(selection: $appSettingsViewModel.newNoteButtonPosition) {
                         ForEach(NewNoteButtonPosition.allCases) { position in
-                            Text(position.text)
+                            Text(String(describing: position))
                         }
                     } label: {
                         Text("New note button")

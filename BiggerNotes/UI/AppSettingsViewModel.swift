@@ -25,18 +25,12 @@ class AppSettingsViewModel: ObservableObject {
     }
 }
 
-enum NewNoteButtonPosition: Int, CaseIterable, Identifiable {
+enum NewNoteButtonPosition: String, CaseIterable, Identifiable, CustomStringConvertible {
     case top
     case bottom
     case both
 
-    var text: String {
-        switch self {
-        case .top: return "Top"
-        case .bottom: return "Bottom"
-        case .both: return "Both"
-        }
-    }
+    var description: String { self.rawValue.capitalized }
     
     var includesTop: Bool {
         return self == .top || self == .both
