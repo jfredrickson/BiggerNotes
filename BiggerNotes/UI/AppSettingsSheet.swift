@@ -27,10 +27,18 @@ struct AppSettingsSheet: View {
                     
                     Picker(selection: $appSettingsViewModel.newNoteButtonPosition) {
                         ForEach(NewNoteButtonPosition.allCases) { position in
-                            Text(position.text)
+                            Text(String(describing: position))
                         }
                     } label: {
                         Text("New note button")
+                    }
+                    
+                    Picker(selection: $appSettingsViewModel.listDensity) {
+                        ForEach(ListDensity.allCases) { density in
+                            Text(String(describing: density))
+                        }
+                    } label: {
+                        Text("Note list density")
                     }
                 }
                 
