@@ -10,6 +10,10 @@ As a Deaf person, I often use my phone to type out what I want to say to someone
 
 Please open an issue here on GitHub to report bugs or request new features. You can also email me at [biggernotes@jeff.ejeff.org](mailto:biggernotes@jeff.ejeff.org).
 
+## Privacy
+
+The app protects your privacy. Please see the [privacy policy](PRIVACY.md) for full details.
+
 ## Development
 
 ### Test deployment
