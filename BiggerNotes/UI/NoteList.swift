@@ -46,7 +46,7 @@ struct NoteList: View {
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
-                        SettingsButton(title: "App Settings") {
+                        SettingsButton(showingSheet: $router.showingAppSettings, title: "App Settings") {
                             AppSettingsSheet()
                         }
                     }
