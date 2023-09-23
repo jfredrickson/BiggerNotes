@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct SettingsButton<Content>: View where Content : View {
-    @State private var showingSheet = false
+    @Binding private var showingSheet: Bool
     private let title: String
     private let systemImage: String
     let popover: () -> Content
 
-    init(title: String = "Settings", systemImage: String = "gearshape", @ViewBuilder _ popover: @escaping () -> Content) {
+    init(showingSheet: Binding<Bool>, title: String = "Settings", systemImage: String = "gearshape", @ViewBuilder _ popover: @escaping () -> Content) {
+        self._showingSheet = showingSheet
         self.title = title
         self.systemImage = systemImage
         self.popover = popover
@@ -33,7 +34,7 @@ struct SettingsButton<Content>: View where Content : View {
 
 struct SettingsButton_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsButton {
+        SettingsButton(showingSheet: .constant(true)) {
             EmptyView()
         }
     }

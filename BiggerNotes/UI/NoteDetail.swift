@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NoteDetail: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var router: Router
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
     @ObservedObject var note: Note
@@ -24,7 +25,7 @@ struct NoteDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .principal) {
-                SettingsButton(title: "Text Settings", systemImage: "textformat.size") {
+                SettingsButton(showingSheet: $router.showingTextSettings, title: "Text Settings", systemImage: "textformat.size") {
                     TextSettingsSheet()
                 }
             }
