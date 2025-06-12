@@ -14,8 +14,8 @@ class TextSettingsViewModel: ObservableObject {
     static let DefaultTextWeight = NoteTextWeight.semibold
     static let DefaultFont = "Helvetica Neue"
     static let DefaultUseCustomColors = false
-    static let DefaultTextColor = Color.black
-    static let DefaultBackgroundColor = Color.white
+    static let DefaultTextColor = SettingsColor(.black)
+    static let DefaultBackgroundColor = SettingsColor(.white)
 
     @AppStorage("textSize") var textSize = DefaultTextSize
     @AppStorage("textWeight") var textWeight = DefaultTextWeight
@@ -48,7 +48,7 @@ class TextSettingsViewModel: ObservableObject {
     var uiTextColor: UIColor {
         get {
             if (useCustomColors) {
-                return UIColor(textColor)
+                return UIColor(textColor.color)
             } else {
                 return .label
             }
@@ -59,7 +59,7 @@ class TextSettingsViewModel: ObservableObject {
     var uiBackgroundColor: UIColor {
         get {
             if (useCustomColors) {
-                return UIColor(backgroundColor)
+                return UIColor(backgroundColor.color)
             } else {
                 return .systemBackground
             }

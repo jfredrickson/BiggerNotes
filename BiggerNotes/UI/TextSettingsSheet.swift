@@ -58,8 +58,8 @@ struct TextSettingsSheet: View {
                         Text("Use custom colors")
                     })
                     Group {
-                        ColorPicker("Text color", selection: $textSettingsViewModel.textColor)
-                        ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor)
+                        ColorPicker("Text color", selection: $textSettingsViewModel.textColor.color)
+                        ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor.color)
                     }
                     .disabled(!textSettingsViewModel.useCustomColors)
                     .opacity(textSettingsViewModel.useCustomColors ? 1 : 0.5)

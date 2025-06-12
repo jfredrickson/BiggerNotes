@@ -20,7 +20,7 @@ struct NoteDetail: View {
             .onDisappear {
                 noteViewModel.save()
             }
-            .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor : .clear)
+            .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor.color : .clear)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
