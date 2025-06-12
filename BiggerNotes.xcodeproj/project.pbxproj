@@ -31,10 +31,10 @@
 		A910930F2895A12800F87E84 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910930D2895A12800F87E84 /* Note+CoreDataProperties.swift */; };
 		A91093112895A50100F87E84 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91093102895A50100F87E84 /* NoteDetail.swift */; };
 		A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* TextSettingsSheet.swift */; };
+		A92146E72DFA792A00C79067 /* SettingsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92146E62DFA792A00C79067 /* SettingsColor.swift */; };
 		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
-		A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */; };
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
 		A9EE0EA9289E310000012FE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA8289E310000012FE2 /* Router.swift */; };
 		A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */; };
@@ -68,12 +68,12 @@
 		A910930D2895A12800F87E84 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A91093102895A50100F87E84 /* NoteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetail.swift; sourceTree = "<group>"; };
 		A910931828962CB200F87E84 /* TextSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsSheet.swift; sourceTree = "<group>"; };
+		A92146E62DFA792A00C79067 /* SettingsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColor.swift; sourceTree = "<group>"; };
 		A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiggerNotes.entitlements; sourceTree = "<group>"; };
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
 		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
 		A9B0D481298C1507005B58B3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+RawRepresentable.swift"; sourceTree = "<group>"; };
 		A9EE0EA3289B4BA800012FE2 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A9EE0EA4289B4BDD00012FE2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNote.swift; sourceTree = "<group>"; };
@@ -154,7 +154,6 @@
 				081232872A7609EA009055E2 /* AppSettingsViewModel.swift */,
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
 				081232892A761508009055E2 /* Bundle+Versions.swift */,
-				A9C65F402992B7BD00D0AA1E /* Color+RawRepresentable.swift */,
 				08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */,
 				0836AE972A873B3900032A60 /* DevToolsSection.swift */,
 				089352272A9C4D4900D22E99 /* FloatingButton.swift */,
@@ -165,6 +164,7 @@
 				A9917914289869F500AD3C30 /* NoteViewModel.swift */,
 				A9EE0EA8289E310000012FE2 /* Router.swift */,
 				08D93EB02A97BDA10083CE0F /* SettingsButton.swift */,
+				A92146E62DFA792A00C79067 /* SettingsColor.swift */,
 				08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */,
 				08D93EBA2A9980FC0083CE0F /* Snackbar.swift */,
 				A910931828962CB200F87E84 /* TextSettingsSheet.swift */,
@@ -289,7 +289,7 @@
 				A9EE0EA9289E310000012FE2 /* Router.swift in Sources */,
 				A91093112895A50100F87E84 /* NoteDetail.swift in Sources */,
 				089352282A9C4D4900D22E99 /* FloatingButton.swift in Sources */,
-				A9C65F412992B7BD00D0AA1E /* Color+RawRepresentable.swift in Sources */,
+				A92146E72DFA792A00C79067 /* SettingsColor.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
 				081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */,
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
@@ -441,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.7.2;
+				MARKETING_VERSION = 3.7.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejeff.BiggerNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -473,7 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.7.2;
+				MARKETING_VERSION = 3.7.3;
 				PRODUCT_BUNDLE_IDENTIFIER = org.ejeff.BiggerNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
