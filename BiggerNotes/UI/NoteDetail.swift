@@ -56,6 +56,7 @@ struct NoteDetailView_Previews: PreviewProvider {
             NoteDetail(note: NoteViewModel(withPersistenceController: .preview).new())
                 .environmentObject(NoteViewModel(withPersistenceController: .preview))
                 .environmentObject(TextSettingsViewModel())
+                .environmentObject(Router())
         }
     }
 }
