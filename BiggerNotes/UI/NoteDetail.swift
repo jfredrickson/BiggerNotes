@@ -24,12 +24,11 @@ struct NoteDetail: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItemGroup(placement: .principal) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                // Text Settings
                 SettingsButton(showingSheet: $router.showingTextSettings, title: "Text Settings", systemImage: "textformat.size") {
                     TextSettingsSheet()
                 }
-            }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 // Trash
                 Button {
                     noteViewModel.trash(note)
