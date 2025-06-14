@@ -13,23 +13,23 @@ struct NoteDetail: View {
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
     @ObservedObject var note: Note
+    @FocusState var isEditing: Bool
 
     var body: some View {
         VStack {
             TextView(text: $note.content)
-            .onDisappear {
-                noteViewModel.save()
-            }
-            .background(textSettingsViewModel.useCustomColors ? textSettingsViewModel.backgroundColor.color : .clear)
+                .font(textSettingsViewModel.uiFont)
+                .textColor(textSettingsViewModel.uiTextColor)
+                .backgroundColor(textSettingsViewModel.uiBackgroundColor)
+                .onDisappear { noteViewModel.save() }
+                .focused($isEditing)
         }
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItemGroup(placement: .principal) {
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                // Text Settings
                 SettingsButton(showingSheet: $router.showingTextSettings, title: "Text Settings", systemImage: "textformat.size") {
                     TextSettingsSheet()
                 }
-            }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 // Trash
                 Button {
                     noteViewModel.trash(note)
