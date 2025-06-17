@@ -10,12 +10,10 @@ import SwiftUI
 struct SettingsSheet<Content>: View where Content : View {
     @Environment(\.dismiss) private var dismiss
     private let title: String
-    private let dismissText: String
     let content: () -> Content
     
-    init(title: String = "Settings", dismissText: String = "Done", @ViewBuilder _ content: @escaping () -> Content) {
+    init(title: String = "Settings", @ViewBuilder _ content: @escaping () -> Content) {
         self.title = title
-        self.dismissText = dismissText
         self.content = content
     }
     
@@ -31,7 +29,7 @@ struct SettingsSheet<Content>: View where Content : View {
                     Button {
                         dismiss()
                     } label: {
-                        Text(dismissText)
+                        Label("Done", systemImage: "checkmark")
                     }
                 }
             }
