@@ -54,7 +54,7 @@ struct PersistenceController {
             let nsError = error as NSError
             self.errorMessage = nsError.localizedDescription
         }
-        #endif
+        #endif // DEBUG
 
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
