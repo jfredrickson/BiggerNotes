@@ -76,31 +76,20 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         .offset(y: isShowing ? offset : UIScreen.main.bounds.height)
         .padding()
         .onAppear {
-            if isShowing {
-                startTimer()
-            }
+            startTimer()
         }
         .onReceive(timer) { t in
             timeElapsed += 0.1
         }
-        .onChange(of: timeElapsed) { _ in
-            if timeElapsed >= timeout {
+        .onChange(of: timeElapsed) { elapsed in
+            if timeout > 0 && elapsed >= timeout {
                 withAnimation {
                     isShowing = false
                 }
             }
         }
-        .onChange(of: isShowing) { _ in
-            if timeout > 0 {
-                if isShowing {
-                    startTimer()
-                } else {
-                    stopTimer()
-                }
-            }
-            if !isShowing {
-                offset = 0
-            }
+        .onDisappear {
+            stopTimer()
         }
         .gesture(
             DragGesture()
