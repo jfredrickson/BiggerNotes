@@ -57,7 +57,7 @@ struct PersistenceController {
         #endif
 
         if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
 
         var errorMessage: String?
