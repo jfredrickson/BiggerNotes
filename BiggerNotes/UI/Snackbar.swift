@@ -18,7 +18,6 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
     @State private var timerConnection: Cancellable? = nil
     @State private var timer = Timer.publish(every: 0.1, on: .main, in: .default)
     @State private var timeElapsed: Double = 0
-    private var timerStartDate = Date.now
     @State private var offset = CGFloat.zero
     
     init(
