@@ -25,14 +25,12 @@ class NoteViewModel: NSObject, ObservableObject {
         super.init()
     }
 
-    // Save the entire Core Data context if there are any changes
+    // Save the entire Core Data context
     func save() {
-        if managedObjectContext.hasChanges {
-            do {
-                try managedObjectContext.save()
-            } catch {
-                errorMessage = error.localizedDescription
-            }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            errorMessage = error.localizedDescription
         }
     }
 
