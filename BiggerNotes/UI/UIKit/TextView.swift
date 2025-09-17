@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TextView: UIViewRepresentable {
     @Binding var text: String?
+    @Binding var clearTrigger: UUID
 
     var font: UIFont = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     var textColor: UIColor = .label
@@ -27,20 +28,6 @@ struct TextView: UIViewRepresentable {
         if text != nil && text!.isEmpty {
             textView.becomeFirstResponder()
         }
-
-        let toolbar = UIToolbar()
-        toolbar.setItems([
-            UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(textView.clear)),
-            UIBarButtonItem(systemItem: .flexibleSpace),
-            UIBarButtonItem(
-                image: UIImage(systemName: "keyboard.chevron.compact.down"),
-                style: .plain,
-                target: self,
-                action: #selector(textView.doneEditing)
-            ),
-        ], animated: false)
-        toolbar.sizeToFit()
-        textView.inputAccessoryView = toolbar
 
         return textView
     }
@@ -62,6 +49,10 @@ struct TextView: UIViewRepresentable {
             textView.text = text
             textView.selectedRange = selectedRange
         }
+        if context.coordinator.lastClearTrigger != clearTrigger {
+            textView.clear()
+            context.coordinator.lastClearTrigger = clearTrigger
+        }
     }
 
     func makeCoordinator() -> Coordinator {
@@ -70,9 +61,11 @@ struct TextView: UIViewRepresentable {
 
     class Coordinator: NSObject, UITextViewDelegate {
         var parent: TextView
+        var lastClearTrigger: UUID
 
         init(_ parent: TextView) {
             self.parent = parent
+            self.lastClearTrigger = parent.clearTrigger
         }
 
         func textViewDidChange(_ textView: UITextView) {

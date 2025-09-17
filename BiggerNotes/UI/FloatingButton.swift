@@ -23,21 +23,38 @@ struct FloatingButton<LabelContent: View>: View {
     }
     
     var body: some View {
-        Button {
-            action()
-        } label: {
-            if let labelContent {
-                labelContent()
+        if #available(iOS 26.0, *) {
+            Button {
+                action()
+            } label: {
+                if let labelContent {
+                    labelContent()
+                        .foregroundColor(.primary)
+                        .bold()
+                        .labelStyle(.iconOnly)
+                        .padding()
+                }
             }
+            .glassEffect()
+            .offset(offset)
+            .padding()
+        } else {
+            Button {
+                action()
+            } label: {
+                if let labelContent {
+                    labelContent()
+                }
+            }
+            .padding()
+            .font(.system(.body).weight(.bold))
+            .background(Color.accentColor)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .shadow(radius: 5)
+            .offset(offset)
+            .padding()
         }
-        .padding()
-        .font(.system(.body).weight(.bold))
-        .background(Color.accentColor)
-        .foregroundColor(.white)
-        .clipShape(Circle())
-        .shadow(radius: 5)
-        .offset(offset)
-        .padding()
     }
 }
 
