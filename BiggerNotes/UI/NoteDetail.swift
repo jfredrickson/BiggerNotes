@@ -21,7 +21,8 @@ struct NoteDetail: View {
             TextView(text: $note.content, clearTrigger: $clearTrigger)
                 .font(textSettingsViewModel.uiFont)
                 .textColor(textSettingsViewModel.uiTextColor)
-                .backgroundColor(textSettingsViewModel.uiBackgroundColor)
+                .backgroundColor(.clear)
+                .background(Color(textSettingsViewModel.uiBackgroundColor).ignoresSafeArea(.all))
                 .onDisappear { noteViewModel.save() }
                 .focused($isEditing)
             if (isEditing) {
