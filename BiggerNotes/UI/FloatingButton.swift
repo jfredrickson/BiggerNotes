@@ -26,7 +26,7 @@ struct FloatingButton<LabelContent: View>: View {
             } label: {
                 if let labelContent {
                     labelContent()
-                        .padding()
+                        .frame(width: 50, height: 50)
                         .foregroundStyle(Color.primary)
                         .labelStyle(.iconOnly)
                 }
