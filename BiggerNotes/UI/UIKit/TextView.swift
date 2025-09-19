@@ -24,6 +24,7 @@ struct TextView: UIViewRepresentable {
         textView.textColor = textColor
         textView.backgroundColor = backgroundColor
         textView.text = text
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
 
         if text != nil && text!.isEmpty {
             textView.becomeFirstResponder()

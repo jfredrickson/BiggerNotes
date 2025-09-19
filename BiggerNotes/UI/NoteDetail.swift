@@ -31,6 +31,8 @@ struct NoteDetail: View {
                     Image(systemName: "keyboard.chevron.compact.down")
                         .accessibility(value: Text("Hide keyboard"))
                 }
+                .padding(.bottom, 8)
+                .padding(.trailing)
             }
         }
         .toolbar {

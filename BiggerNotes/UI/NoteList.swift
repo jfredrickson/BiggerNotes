@@ -63,12 +63,14 @@ struct NoteList: View {
                 .errorAlert(errorMessage: $noteViewModel.errorMessage)
 
                 if (appSettingsViewModel.newNoteButtonPosition.includesBottom) {
-                    FloatingButton(offset: CGSize(width: 0, height: showUndoTrashSnackbar ? -60 : 0)) {
+                    FloatingButton {
                         router.displayNote(noteViewModel.new())
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .accessibility(value: Text("New Note"))
                     }
+                    .padding()
+                    .offset(CGSize(width: 0, height: showUndoTrashSnackbar ? -60 : 0))
                 }
                 
                 Snackbar(isShowing: $showUndoTrashSnackbar, timeout: 5) {
