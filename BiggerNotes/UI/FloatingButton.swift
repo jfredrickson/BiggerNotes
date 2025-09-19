@@ -27,10 +27,11 @@ struct FloatingButton<LabelContent: View>: View {
                 if let labelContent {
                     labelContent()
                         .padding()
+                        .foregroundStyle(Color.primary)
                         .labelStyle(.iconOnly)
                 }
             }
-            .glassEffect()
+            .glassEffect(.regular.interactive(), in: Circle())
         } else {
             Button {
                 action()
