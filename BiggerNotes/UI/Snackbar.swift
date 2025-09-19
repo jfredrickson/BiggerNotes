@@ -17,6 +17,7 @@ extension View {
                 .foregroundColor(.white)
                 .clipShape(Capsule())
                 .fixedSize(horizontal: false, vertical: true)
+                .shadow(radius: 5)
         }
     }
 }
