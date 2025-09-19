@@ -31,7 +31,7 @@ struct FloatingButton<LabelContent: View>: View {
                         .labelStyle(.iconOnly)
                 }
             }
-            .glassEffect(.regular.interactive(), in: Circle())
+            .glassEffect(.regular.interactive(), in: .circle)
         } else {
             Button {
                 action()
