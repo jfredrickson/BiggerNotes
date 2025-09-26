@@ -57,7 +57,6 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
             if let action {
                 Spacer()
                 Divider()
-                    .background(Color.white)
                 Button {
                     action()
                 } label: {
