@@ -32,6 +32,7 @@
 		A91093112895A50100F87E84 /* NoteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91093102895A50100F87E84 /* NoteDetail.swift */; };
 		A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* TextSettingsSheet.swift */; };
 		A92146E72DFA792A00C79067 /* SettingsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92146E62DFA792A00C79067 /* SettingsColor.swift */; };
+		A966ED6A2E8B3F16001BB971 /* BiggerNotes.icon in Resources */ = {isa = PBXBuildFile; fileRef = A966ED692E8B3F16001BB971 /* BiggerNotes.icon */; };
 		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
@@ -70,6 +71,7 @@
 		A910931828962CB200F87E84 /* TextSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsSheet.swift; sourceTree = "<group>"; };
 		A92146E62DFA792A00C79067 /* SettingsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColor.swift; sourceTree = "<group>"; };
 		A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiggerNotes.entitlements; sourceTree = "<group>"; };
+		A966ED692E8B3F16001BB971 /* BiggerNotes.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = BiggerNotes.icon; sourceTree = "<group>"; };
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
 		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				A9EE0EA5289E303000012FE2 /* Intents */,
 				A944827A289B1A6F00F6E7FC /* UI */,
 				A91092FC28959F5000F87E84 /* Assets.xcassets */,
+				A966ED692E8B3F16001BB971 /* BiggerNotes.icon */,
 				A910930628959F5000F87E84 /* Info.plist */,
 				A910930328959F5000F87E84 /* BiggerNotes.xcdatamodeld */,
 				A91092FE28959F5000F87E84 /* Preview Content */,
@@ -259,6 +262,7 @@
 			files = (
 				A910930028959F5000F87E84 /* Preview Assets.xcassets in Resources */,
 				A91092FD28959F5000F87E84 /* Assets.xcassets in Resources */,
+				A966ED6A2E8B3F16001BB971 /* BiggerNotes.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +433,7 @@
 		A910930A28959F5000F87E84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BiggerNotes;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BiggerNotes/BiggerNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,7 +464,7 @@
 		A910930B28959F5000F87E84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = BiggerNotes;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BiggerNotes/BiggerNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
