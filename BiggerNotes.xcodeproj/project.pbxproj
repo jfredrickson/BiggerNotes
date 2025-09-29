@@ -99,11 +99,11 @@
 		A91092EC28959F4F00F87E84 = {
 			isa = PBXGroup;
 			children = (
-				A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */,
-				A9EE0EA4289B4BDD00012FE2 /* README.md */,
-				A9EE0EA3289B4BA800012FE2 /* LICENSE */,
 				A91092F728959F4F00F87E84 /* BiggerNotes */,
+				A9EE0EA3289B4BA800012FE2 /* LICENSE */,
+				A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */,
 				A91092F628959F4F00F87E84 /* Products */,
+				A9EE0EA4289B4BDD00012FE2 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,12 +118,12 @@
 		A91092F728959F4F00F87E84 /* BiggerNotes */ = {
 			isa = PBXGroup;
 			children = (
-				A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */,
 				A9448279289B1A5900F6E7FC /* Data */,
 				A9EE0EA5289E303000012FE2 /* Intents */,
 				A944827A289B1A6F00F6E7FC /* UI */,
 				A91092FC28959F5000F87E84 /* Assets.xcassets */,
 				A966ED692E8B3F16001BB971 /* BiggerNotes.icon */,
+				A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */,
 				A910930628959F5000F87E84 /* Info.plist */,
 				A910930328959F5000F87E84 /* BiggerNotes.xcdatamodeld */,
 				A91092FE28959F5000F87E84 /* Preview Content */,
@@ -142,9 +142,9 @@
 		A9448279289B1A5900F6E7FC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A910930128959F5000F87E84 /* Persistence.swift */,
 				A910930C2895A12800F87E84 /* Note+CoreDataClass.swift */,
 				A910930D2895A12800F87E84 /* Note+CoreDataProperties.swift */,
+				A910930128959F5000F87E84 /* Persistence.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -180,9 +180,9 @@
 		A9B0D483298C160F005B58B3 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				0875267B2A93E23C007795F8 /* FontPicker.swift */,
 				A9B0D481298C1507005B58B3 /* TextView.swift */,
 				0847AED42A66FEAB00A60344 /* UIFont.swift */,
-				0875267B2A93E23C007795F8 /* FontPicker.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
