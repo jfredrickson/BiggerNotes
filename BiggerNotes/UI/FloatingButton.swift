@@ -8,36 +8,44 @@
 import SwiftUI
 
 struct FloatingButton<LabelContent: View>: View {
-    private var offset: CGSize
     private let action: () -> Void
     private let labelContent: (() -> LabelContent)?
     
     init(
-        offset: CGSize = CGSize(),
         _ action: @escaping () -> Void,
         label: (() -> LabelContent)? = { EmptyView() })
     {
-        self.offset = offset
         self.action = action
         self.labelContent = label
     }
     
     var body: some View {
-        Button {
-            action()
-        } label: {
-            if let labelContent {
-                labelContent()
+        if #available(iOS 26.0, *) {
+            Button {
+                action()
+            } label: {
+                if let labelContent {
+                    labelContent()
+                        .frame(width: 50, height: 50)
+                        .foregroundStyle(Color.primary)
+                        .labelStyle(.iconOnly)
+                }
             }
+            .glassEffect(.regular.interactive(), in: .circle)
+        } else {
+            Button {
+                action()
+            } label: {
+                if let labelContent {
+                    labelContent()
+                }
+            }
+            .padding()
+            .background(Color.accentColor)
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .shadow(radius: 5)
         }
-        .padding()
-        .font(.system(.body).weight(.bold))
-        .background(Color.accentColor)
-        .foregroundColor(.white)
-        .clipShape(Circle())
-        .shadow(radius: 5)
-        .offset(offset)
-        .padding()
     }
 }
 

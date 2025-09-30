@@ -8,6 +8,20 @@
 import SwiftUI
 import Combine
 
+extension View {
+    func snackbarDynamicStyle() -> some View {
+        if #available(iOS 26.0, *) {
+            return self.glassEffect()
+        } else {
+            return self.background(Color.accentColor)
+                .foregroundColor(.white)
+                .clipShape(Capsule())
+                .fixedSize(horizontal: false, vertical: true)
+                .shadow(radius: 5)
+        }
+    }
+}
+
 struct Snackbar<Content: View, ActionLabel: View>: View {
     @Binding private var isShowing: Bool
     private var timeout: Double
@@ -38,11 +52,11 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
         HStack {
             content()
                 .padding(10)
+                .padding([.leading, .trailing], 10)
             
             if let action {
                 Spacer()
                 Divider()
-                    .background(Color.white)
                 Button {
                     action()
                 } label: {
@@ -54,7 +68,6 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
                                 Circle()
                                     .trim(from: (timeElapsed / timeout), to: 1)
                                     .stroke(style: StrokeStyle(lineWidth: 3))
-                                    .foregroundColor(.white)
                                     .animation(.easeInOut, value: timeElapsed)
                                     .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
                                     .rotationEffect(.degrees(-90))
@@ -64,14 +77,11 @@ struct Snackbar<Content: View, ActionLabel: View>: View {
                     }
                 }
                 .padding(10)
+                .padding([.leading, .trailing], 10)
             }
         }
         .frame(idealWidth: .infinity, maxWidth: .infinity, minHeight: 50)
-        .animation(.linear, value: isShowing)
-        .background(Color.accentColor)
-        .foregroundColor(.white)
-        .cornerRadius(8)
-        .shadow(radius: 5)
+        .snackbarDynamicStyle()
         .fixedSize(horizontal: false, vertical: true)
         .offset(y: isShowing ? offset : UIScreen.main.bounds.height)
         .padding()

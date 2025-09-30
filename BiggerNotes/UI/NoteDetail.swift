@@ -14,28 +14,33 @@ struct NoteDetail: View {
     @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
     @ObservedObject var note: Note
     @FocusState var isEditing: Bool
+    @State private var clearTrigger = UUID()
 
     var body: some View {
-        VStack {
-            TextView(text: $note.content)
+        ZStack(alignment: .bottomTrailing) {
+            TextView(text: $note.content, clearTrigger: $clearTrigger)
                 .font(textSettingsViewModel.uiFont)
                 .textColor(textSettingsViewModel.uiTextColor)
-                .backgroundColor(textSettingsViewModel.uiBackgroundColor)
+                .backgroundColor(.clear)
+                .background(Color(textSettingsViewModel.uiBackgroundColor).ignoresSafeArea(.all))
                 .onDisappear { noteViewModel.save() }
                 .focused($isEditing)
+            if (isEditing) {
+                FloatingButton {
+                    isEditing.toggle()
+                } label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                        .accessibility(value: Text("Hide keyboard"))
+                }
+                .padding(.bottom, 8)
+                .padding(.trailing)
+            }
         }
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 // Text Settings
                 SettingsButton(showingSheet: $router.showingTextSettings, title: "Text Settings", systemImage: "textformat.size") {
                     TextSettingsSheet()
-                }
-                // Trash
-                Button {
-                    noteViewModel.trash(note)
-                    dismiss()
-                } label: {
-                    Label("Trash", systemImage: "trash")
                 }
                 // Favorite
                 Button {
@@ -44,9 +49,35 @@ struct NoteDetail: View {
                     Label("Toggle Favorite",systemImage: note.favorite ? "star.fill" : "star")
                         .foregroundColor(note.favorite ? .yellow : .accentColor)
                 }
+                Menu {
+                    // Erase
+                    Button {
+                        clearTrigger = UUID()
+                    } label: {
+                        Label("Erase all text", systemImage: "eraser")
+                    }
+                    // Delete
+                    Button(role: .destructive) {
+                        noteViewModel.trash(note)
+                        dismiss()
+                    } label: {
+                        Label("Delete note", systemImage: "trash")
+                    }
+                } label: {
+                    Label("More", systemImage: "ellipsis")
+                }
             }
         }
-        .toolbarBackground(textSettingsViewModel.useCustomColors ? .visible : .hidden)
+        .ignoresSafeArea(.container, edges: findIgnoredEdges)
+    }
+
+    var findIgnoredEdges: Edge.Set {
+        // Liquid Glass provides sufficient contrast regardless of custom color
+        if #available(iOS 26.0, *) {
+            .all
+        } else {
+            [.leading, .trailing, .bottom]
+        }
     }
 }
 
