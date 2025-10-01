@@ -111,7 +111,7 @@ struct NoteList_Previews: PreviewProvider {
         NoteList()
             .environment(\.managedObjectContext, viewContext)
             .environmentObject(AppSettingsViewModel())
-            .environmentObject(NoteViewModel())
+            .environmentObject(NoteViewModel(withPersistenceController: .preview))
             .environmentObject(Router())
     }
 }
