@@ -41,5 +41,6 @@ struct NoteLink_Previews: PreviewProvider {
     static var previews: some View {
         NoteLink(note: NoteViewModel(withPersistenceController: .preview).new())
             .environmentObject(NoteViewModel(withPersistenceController: .preview))
+            .environmentObject(AppSettingsViewModel())
     }
 }
