@@ -34,6 +34,7 @@ struct TextSettingsSheet: View {
                         in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
                     )
                     .listRowSeparator(.hidden)
+                    .accessibilityLabel(Text("Text size"))
                     
                     // Text weight
                     Picker("Text weight", selection: $textSettingsViewModel.textWeight) {
