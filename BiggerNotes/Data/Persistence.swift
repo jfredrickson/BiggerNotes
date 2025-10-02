@@ -70,4 +70,39 @@ struct PersistenceController {
 
         self.errorMessage = errorMessage
     }
+    
+    func resetData() {
+        let context = container.viewContext
+        
+        context.performAndWait {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            let _ = try? container.persistentStoreCoordinator.execute(batchDeleteRequest, with: context)
+        }
+    }
+    
+    func loadScreenshotData() {
+        let viewContext = self.container.viewContext
+        let strings = [
+            "Hello! I'm deaf, we can type to each other here.",
+            "The quick brown fox jumped over the lazy dog.",
+            "I'd like a large iced tea, please."
+        ]
+        for i in 0..<strings.count {
+            let newNote = Note(context: viewContext)
+            newNote.id = UUID(uuidString: "00000000-0000-0000-0000-00000000000\(i)")
+            newNote.content = strings[i]
+            newNote.created = Date.now
+            newNote.modified = newNote.created
+            newNote.favorite = (i == 0)
+            newNote.trashed = false
+        }
+        do {
+            try viewContext.save()
+        } catch {
+            // Unhandled error is OK here since this is only for screenshots.
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+    }
 }
