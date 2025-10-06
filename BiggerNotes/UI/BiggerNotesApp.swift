@@ -14,7 +14,47 @@ struct BiggerNotesApp: App {
     @StateObject var appSettingsViewModel = AppSettingsViewModel()
     @StateObject var textSettingsViewModel = TextSettingsViewModel()
     @StateObject var router = Router.shared
-
+    
+    init() {
+        let args = ProcessInfo.processInfo.arguments
+        
+        if args.contains("-resetData") {
+            PersistenceController.shared.resetData()
+        }
+        
+        if args.contains("-loadScreenshotData") {
+            PersistenceController.shared.loadScreenshotData()
+        }
+        
+        if args.contains("-screenshotVariation1") {
+            let textSettings = TextSettingsViewModel()
+            textSettings.resetToDefaults()
+            textSettings.useCustomColors = true
+            textSettings.fontName = "American Typewriter"
+            textSettings.textSize = 60
+            textSettings.textWeight = .regular
+            textSettings.textColor = SettingsColor(.white)
+            textSettings.backgroundColor = SettingsColor(.black)
+        }
+        
+        if args.contains("-screenshotVariation2") {
+            let textSettings = TextSettingsViewModel()
+            textSettings.resetToDefaults()
+            textSettings.useCustomColors = true
+            textSettings.fontName = "Noteworthy"
+            textSettings.textSize = 60
+            textSettings.textWeight = .bold
+            textSettings.textColor = SettingsColor(Color(red: 1/255, green: 47/255, blue: 123/255))
+            textSettings.backgroundColor = SettingsColor(Color(red: 254/255, green: 252/255, blue: 221/255))
+        }
+        
+        if args.contains("-screenshotVariation3") {
+            let textSettings = TextSettingsViewModel()
+            textSettings.resetToDefaults()
+            textSettings.textSize = 100
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             NoteList()

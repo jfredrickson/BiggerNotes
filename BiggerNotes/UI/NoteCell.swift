@@ -20,6 +20,7 @@ struct NoteCell: View {
                 .font(appSettingsViewModel.listDensity.secondaryFont)
                 .foregroundColor(.secondary)
         }
+        .accessibilityIdentifier(note.id?.uuidString ?? "")
     }
     
     private let dateFormatter: DateFormatter = {
