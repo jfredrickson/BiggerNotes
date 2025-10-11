@@ -13,12 +13,18 @@ class Router: ObservableObject {
     @Published var path: [Note] = []
     @Published var showingAppSettings = false
     @Published var showingTextSettings = false
+    
+    var currentNote: Note? {
+        get { path.last }
+    }
 
     func displayNote(_ note: Note) {
         showingAppSettings = false
         showingTextSettings = false
-        path.removeAll()
-        path.append(note)
+        if path.last != note {
+            path.removeAll()
+            path.append(note)
+        }
     }
 
     func displayNoteList() {
