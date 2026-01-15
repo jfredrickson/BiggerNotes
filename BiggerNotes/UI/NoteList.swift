@@ -114,11 +114,12 @@ struct NoteList: View {
                         router.displayNote(noteViewModel.new())
                     } else if router.path.isEmpty {
                         // Only restore navigation when path is empty (fresh launch/state restoration)
-                        if let recentlyActiveNoteId {
-                            let id = UUID(uuidString: recentlyActiveNoteId)
+                        if let recentlyActiveNoteId, let id = UUID(uuidString: recentlyActiveNoteId) {
                             let context = PersistenceController.shared.container.viewContext
                             let fetchRequest = NSFetchRequest<Note>(entityName: "Note")
-                            if let note = try? context.fetch(fetchRequest).first(where: { $0.id == id }) {
+                            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+                            fetchRequest.fetchLimit = 1
+                            if let note = try? context.fetch(fetchRequest).first {
                                 router.displayNote(note)
                             }
                         }
