@@ -9,9 +9,11 @@ import SwiftUI
 import CoreData
 
 struct NoteList: View {
+    @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
     @EnvironmentObject var noteViewModel: NoteViewModel
     @EnvironmentObject var router: Router
+    @SceneStorage("recentlyActiveNoteId") var recentlyActiveNoteId: String?
     @State var showUndoTrashSnackbar = false
     
     @SectionedFetchRequest<String, Note>(
@@ -98,6 +100,29 @@ struct NoteList: View {
             .onChange(of: noteViewModel.recentlyTrashedNote) { trashedNote in
                 withAnimation {
                     showUndoTrashSnackbar = (trashedNote != nil)
+                }
+            }
+            .onChange(of: scenePhase) { phase in
+                if phase == .background {
+                    // Save current note ID if viewing a note, otherwise clear it
+                    recentlyActiveNoteId = router.currentNote?.id?.uuidString
+                }
+
+                if phase == .active {
+                    if appSettingsViewModel.startWithNewNote && router.path.isEmpty {
+                        // Start a new note upon app open if that preference is set
+                        router.displayNote(noteViewModel.new())
+                    } else if router.path.isEmpty {
+                        // Only restore navigation when path is empty (fresh launch/state restoration)
+                        if let recentlyActiveNoteId {
+                            let id = UUID(uuidString: recentlyActiveNoteId)
+                            let context = PersistenceController.shared.container.viewContext
+                            let fetchRequest = NSFetchRequest<Note>(entityName: "Note")
+                            if let note = try? context.fetch(fetchRequest).first(where: { $0.id == id }) {
+                                router.displayNote(note)
+                            }
+                        }
+                    }
                 }
             }
         }

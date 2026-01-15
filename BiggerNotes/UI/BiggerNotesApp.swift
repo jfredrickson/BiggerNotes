@@ -15,7 +15,6 @@ struct BiggerNotesApp: App {
     @StateObject var appSettingsViewModel = AppSettingsViewModel()
     @StateObject var textSettingsViewModel = TextSettingsViewModel()
     @StateObject var router = Router.shared
-    @AppStorage("recentlyActiveNoteId") var recentlyActiveNoteId: String?
     
     init() {
         let args = ProcessInfo.processInfo.arguments
@@ -71,26 +70,6 @@ struct BiggerNotesApp: App {
                 // Delete trashed notes and save all data upon app close
                 noteViewModel.deleteAll(onlyTrashed: true)
                 noteViewModel.save()
-                
-                // If a NoteDetail view is open with a note, remember the note's ID
-                recentlyActiveNoteId = router.currentNote?.id?.uuidString
-            }
-            
-            if phase == .active {
-                if appSettingsViewModel.startWithNewNote && router.path.isEmpty {
-                    // Start a new note upon app open if that preference is set
-                    router.displayNote(noteViewModel.new())
-                } else {
-                    // Otherwise, if there was a recently active note, open that note
-                    if let recentlyActiveNoteId {
-                        let id = UUID(uuidString: recentlyActiveNoteId)
-                        let context = PersistenceController.shared.container.viewContext
-                        let fetchRequest = NSFetchRequest<Note>(entityName: "Note")
-                        if let note = try? context.fetch(fetchRequest).first(where: { $0.id == id }) {
-                            router.displayNote(note)
-                        }
-                    }
-                }
             }
         }
     }
