@@ -102,12 +102,16 @@ struct NoteList: View {
                     showUndoTrashSnackbar = (trashedNote != nil)
                 }
             }
-            .onChange(of: scenePhase) { phase in
-                if phase == .background {
-                    // Save current note ID if viewing a note, otherwise clear it
-                    recentlyActiveNoteId = router.currentNote?.id?.uuidString
+            .onChange(of: router.path) { newPath in
+                // Save/clear note ID whenever navigation changes
+                if let currentNote = newPath.last {
+                    recentlyActiveNoteId = currentNote.id?.uuidString
+                } else {
+                    // User returned to NoteList - clear the saved note
+                    recentlyActiveNoteId = nil
                 }
-
+            }
+            .onChange(of: scenePhase) { phase in
                 if phase == .active {
                     if appSettingsViewModel.startWithNewNote && router.path.isEmpty {
                         // Start a new note upon app open if that preference is set
