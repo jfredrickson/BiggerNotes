@@ -82,7 +82,22 @@ final class PersistenceController {
         context.performAndWait {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
             let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            let _ = try? container.persistentStoreCoordinator.execute(batchDeleteRequest, with: context)
+            batchDeleteRequest.resultType = .resultTypeObjectIDs
+
+            do {
+                // Execute the batch delete
+                let result = try container.persistentStoreCoordinator.execute(batchDeleteRequest, with: context) as? NSBatchDeleteResult
+                // Ensure the context is up to date with the deletions
+                if let objectIDs = result?.result as? [NSManagedObjectID] {
+                    NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs], into: [context])
+                }
+            } catch {
+                if let error = error as NSError? {
+                    DispatchQueue.main.async {
+                        self.errorMessage = "There was a problem deleting all notes: \(error.localizedDescription)"
+                    }
+                }
+            }
         }
     }
     
