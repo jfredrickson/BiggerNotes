@@ -5,9 +5,10 @@
 //  Created by Jeff Fredrickson on 7/30/22.
 //
 
+import CloudKit
 import CoreData
 
-struct PersistenceController {
+final class PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
@@ -43,32 +44,36 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "BiggerNotes")
         container.viewContext.automaticallyMergesChangesFromParent = true
-        
-        #if DEBUG
-        do {
-            try container.initializeCloudKitSchema(options: [
-                //.dryRun,
-                //.printSchema
-            ])
-        } catch {
-            let nsError = error as NSError
-            self.errorMessage = nsError.localizedDescription
-        }
-        #endif // DEBUG
 
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
 
-        var errorMessage: String?
-
-        container.loadPersistentStores(completionHandler: { (_, error) in
+        // Load persistent stores immediately (works locally even without CloudKit)
+        container.loadPersistentStores { [weak self] (_, error) in
             if let error = error as NSError? {
-                errorMessage = error.localizedDescription
+                DispatchQueue.main.async {
+                    self?.errorMessage = error.localizedDescription
+                }
             }
-        })
+        }
 
-        self.errorMessage = errorMessage
+        #if DEBUG
+        // Initialize CloudKit schema in debug builds (will fail gracefully if CloudKit unavailable)
+        CKContainer.default().accountStatus { [weak self] status, _ in
+            if status == .available {
+                do {
+                    try self?.container.initializeCloudKitSchema(options: [
+                        // Useful options:
+                        // .dryRun
+                        // .printSchema
+                    ])
+                } catch {
+                    // Schema initialization failed - not critical, sync will still work
+                }
+            }
+        }
+        #endif // DEBUG
     }
     
     func resetData() {
