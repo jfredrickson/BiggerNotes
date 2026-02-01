@@ -16,8 +16,12 @@ struct NoteLink: View {
             NoteCell(note: note)
                 .swipeActions(edge: .leading) {
                     Button {
-                        withAnimation {
-                            noteViewModel.toggleFavorite(note)
+                        // Workaround for iOS 26 glitchy animation. Normally, it should be possible to do this with a simple withAnimation {} and no Task.
+                        Task { @MainActor in
+                            try? await Task.sleep(for: .milliseconds(300))
+                            withAnimation {
+                                noteViewModel.toggleFavorite(note)
+                            }
                         }
                     } label: {
                         Label("Toggle Favorite", systemImage: note.favorite ? "star.slash.fill" : "star.fill")

@@ -109,6 +109,7 @@ class NoteViewModel: NSObject, ObservableObject {
     // Toggle the favorite status of a note
     func toggleFavorite(_ note: Note) {
         note.favorite.toggle()
+        save()
     }
     
     // Generate some test data for development
