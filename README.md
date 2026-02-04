@@ -18,8 +18,8 @@ The app protects your privacy. Please see the [privacy policy](PRIVACY.md) for f
 
 ### Test deployment
 
-To deploy a version to TestFlight, open a PR from a feature branch targeting the `main` branch. Xcode Cloud will automatically build and release to TestFlight. The title of the PR will be incorporated into the release notes later.
+To deploy a version to TestFlight, merge a PR from a feature branch to the `main` branch. Xcode Cloud will automatically build the `main` branch and release the build to TestFlight.
 
 ### App Store deployment
 
-To deploy the contents of the `main` branch to the App Store, [draft a new release](https://github.com/jfredrickson/BiggerNotes/releases/new). Create a new tag following semantic versioning, like `v3.2.1`. Use the "Generate release notes" option. The title should be populated with the tag name, and the release description should be a list of all the PR titles since the last release. Xcode Cloud will automatically create a build, which can be submitted on App Store Connect (still a manual process).
+To deploy the contents of the `main` branch to the App Store, [draft a new release](https://github.com/jfredrickson/BiggerNotes/releases/new). Create a new tag following semantic versioning, like `v3.2.1`. Use the "Generate release notes" option. The title will be automatically populated with the tag name, and the release description will be populated with a list of all the PRs since the last release. Xcode Cloud will automatically create a build, which can be submitted on App Store Connect (App Store submission is still a manual process).
