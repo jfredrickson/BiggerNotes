@@ -109,6 +109,7 @@ class NoteViewModel: NSObject, ObservableObject {
     // Toggle the favorite status of a note
     func toggleFavorite(_ note: Note) {
         note.favorite.toggle()
+        save()
     }
     
     // Generate some test data for development
@@ -122,6 +123,9 @@ class NoteViewModel: NSObject, ObservableObject {
             let newNote = new()
             newNote.content = strings[Int.random(in: 0...2)]
             newNote.favorite = (i % 3 == 0)
+            let randomOffset = TimeInterval(-i * 3600 - Int.random(in: 0...3599)) // Each note 1+ hours apart
+            newNote.created = Date().addingTimeInterval(randomOffset)
+            newNote.modified = newNote.created
         }
         save()
     }

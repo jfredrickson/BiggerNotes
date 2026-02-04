@@ -8,6 +8,16 @@
 import SwiftUI
 import CoreData
 
+// Composite identity for note rows, including favorite status so SwiftUI
+// treats favorite changes as structural changes (row replacement) rather
+// than state changes (row update). This fixes iOS 26 animation glitches
+// where the swipe menu state was preserved during row reordering.
+// https://stackoverflow.com/a/79847249
+struct NoteRowID: Hashable {
+    var objectID: NSManagedObjectID
+    var favorite: Bool
+}
+
 struct NoteList: View {
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
@@ -35,6 +45,8 @@ struct NoteList: View {
                         Section {
                             ForEach(section) { note in
                                 NoteLink(note: note)
+                                    // Workaround for iOS 26 list animation glitches
+                                    .id(NoteRowID(objectID: note.objectID, favorite: note.favorite))
                             }
                         } header: {
                             Label(section.id, systemImage: section.id == "Favorites" ? "star.fill" : "note.text")
