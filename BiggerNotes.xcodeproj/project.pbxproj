@@ -96,6 +96,9 @@
 		A92146E62DFA792A00C79067 /* SettingsColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsColor.swift; sourceTree = "<group>"; };
 		A937EC2B2F358D810024CBA1 /* BiggerNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiggerNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A937EC3A2F358D8F0024CBA1 /* BiggerNotesUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiggerNotesUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A937EC432F3590C10024CBA1 /* bug_report.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = bug_report.md; sourceTree = "<group>"; };
+		A937EC442F3590C10024CBA1 /* feature_request.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = feature_request.md; sourceTree = "<group>"; };
+		A937EC462F3590C10024CBA1 /* tests.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = tests.yml; sourceTree = "<group>"; };
 		A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiggerNotes.entitlements; sourceTree = "<group>"; };
 		A966ED692E8B3F16001BB971 /* BiggerNotes.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = BiggerNotes.icon; sourceTree = "<group>"; };
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		A91092EC28959F4F00F87E84 = {
 			isa = PBXGroup;
 			children = (
+				A937EC482F3590C10024CBA1 /* .github */,
 				A91092F728959F4F00F87E84 /* BiggerNotes */,
 				A9EE0EA3289B4BA800012FE2 /* LICENSE */,
 				A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */,
@@ -216,6 +220,32 @@
 				A9EE0EB228A01AF500012FE2 /* TextSettings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A937EC452F3590C10024CBA1 /* ISSUE_TEMPLATE */ = {
+			isa = PBXGroup;
+			children = (
+				A937EC432F3590C10024CBA1 /* bug_report.md */,
+				A937EC442F3590C10024CBA1 /* feature_request.md */,
+			);
+			path = ISSUE_TEMPLATE;
+			sourceTree = "<group>";
+		};
+		A937EC472F3590C10024CBA1 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				A937EC462F3590C10024CBA1 /* tests.yml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		A937EC482F3590C10024CBA1 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				A937EC452F3590C10024CBA1 /* ISSUE_TEMPLATE */,
+				A937EC472F3590C10024CBA1 /* workflows */,
+			);
+			path = .github;
 			sourceTree = "<group>";
 		};
 		A9448279289B1A5900F6E7FC /* Data */ = {
