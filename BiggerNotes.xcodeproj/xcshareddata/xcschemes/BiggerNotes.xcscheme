@@ -39,6 +39,28 @@
                ReferencedContainer = "container:BiggerNotes.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A937EC2A2F358D810024CBA1"
+               BuildableName = "BiggerNotesUITests.xctest"
+               BlueprintName = "BiggerNotesUITests"
+               ReferencedContainer = "container:BiggerNotes.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A937EC392F358D8F0024CBA1"
+               BuildableName = "BiggerNotesUnitTests.xctest"
+               BlueprintName = "BiggerNotesUnitTests"
+               ReferencedContainer = "container:BiggerNotes.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
