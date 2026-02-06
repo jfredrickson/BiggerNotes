@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DevToolsSection: View {
-    @EnvironmentObject var noteViewModel: NoteViewModel
+    @EnvironmentObject var noteService: NoteService
     
     var body: some View {
         Section {
             Button {
-                noteViewModel.generateTestData()
+                noteService.generateTestData()
             } label: {
                 Text("Generate test notes")
             }

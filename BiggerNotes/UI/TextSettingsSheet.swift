@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TextSettingsSheet: View {
-    @EnvironmentObject private var textSettingsViewModel: TextSettingsViewModel
+    @EnvironmentObject private var textSettings: TextSettings
     
     var body: some View {
         SettingsSheet(title: "Text Settings") {
@@ -19,26 +19,26 @@ struct TextSettingsSheet: View {
                     HStack {
                         Spacer()
                         Text("Hi")
-                            .font(Font(textSettingsViewModel.uiFont))
-                            .frame(height: TextSettingsViewModel.MaxTextSize)
+                            .font(Font(textSettings.uiFont))
+                            .frame(height: TextSettings.MaxTextSize)
                         Spacer()
                     }
-                    .foregroundStyle(Color(textSettingsViewModel.uiTextColor))
-                    .background(Color(textSettingsViewModel.uiBackgroundColor))
+                    .foregroundStyle(Color(textSettings.uiTextColor))
+                    .background(Color(textSettings.uiBackgroundColor))
                     .cornerRadius(8)
                     .listRowSeparator(.hidden)
                     
                     // Text size
                     Slider(
-                        value: $textSettingsViewModel.textSize,
-                        in: TextSettingsViewModel.MinTextSize...TextSettingsViewModel.MaxTextSize
+                        value: $textSettings.textSize,
+                        in: TextSettings.MinTextSize...TextSettings.MaxTextSize
                     )
                     .listRowSeparator(.hidden)
                     .accessibilityLabel(Text("Text size"))
                     
                     // Text weight
-                    Picker("Text weight", selection: $textSettingsViewModel.textWeight) {
-                        ForEach(textSettingsViewModel.availableWeights) { option in
+                    Picker("Text weight", selection: $textSettings.textWeight) {
+                        ForEach(textSettings.availableWeights) { option in
                             Text(option.rawValue).tag(option)
                         }
                     }
@@ -46,29 +46,29 @@ struct TextSettingsSheet: View {
                     
                     // Font
                     NavigationLink {
-                        FontPicker(fontName: $textSettingsViewModel.fontName)
+                        FontPicker(fontName: $textSettings.fontName)
                             .navigationTitle("Fonts")
                     } label: {
-                        Text(textSettingsViewModel.fontName)
+                        Text(textSettings.fontName)
                     }
                 }
                 
                 // Color
                 Section {
-                    Toggle(isOn: $textSettingsViewModel.useCustomColors, label: {
+                    Toggle(isOn: $textSettings.useCustomColors, label: {
                         Text("Use custom colors")
                     })
                     Group {
-                        ColorPicker("Text color", selection: $textSettingsViewModel.textColor.color)
-                        ColorPicker("Background color", selection: $textSettingsViewModel.backgroundColor.color)
+                        ColorPicker("Text color", selection: $textSettings.textColor.color)
+                        ColorPicker("Background color", selection: $textSettings.backgroundColor.color)
                     }
-                    .disabled(!textSettingsViewModel.useCustomColors)
-                    .opacity(textSettingsViewModel.useCustomColors ? 1 : 0.5)
+                    .disabled(!textSettings.useCustomColors)
+                    .opacity(textSettings.useCustomColors ? 1 : 0.5)
                 }
                 
                 // Reset
                 Button {
-                    textSettingsViewModel.resetToDefaults()
+                    textSettings.resetToDefaults()
                 } label: {
                     Text("Reset to defaults")
                 }
@@ -81,7 +81,7 @@ struct TextSettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             TextSettingsSheet()
-                .environmentObject(TextSettingsViewModel())
+                .environmentObject(TextSettings())
         }
     }
 }

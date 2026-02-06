@@ -20,8 +20,8 @@ struct NoteRowID: Hashable {
 
 struct NoteList: View {
     @Environment(\.scenePhase) var scenePhase
-    @EnvironmentObject var appSettingsViewModel: AppSettingsViewModel
-    @EnvironmentObject var noteViewModel: NoteViewModel
+    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var noteService: NoteService
     @EnvironmentObject var router: Router
     @SceneStorage("recentlyActiveNoteId") var recentlyActiveNoteId: String?
     @State var showUndoTrashSnackbar = false
@@ -65,20 +65,20 @@ struct NoteList: View {
                         }
                     }
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        if (appSettingsViewModel.newNoteButtonPosition.includesTop) {
+                        if (appSettings.newNoteButtonPosition.includesTop) {
                             Button {
-                                router.displayNote(noteViewModel.new())
+                                router.displayNote(noteService.new())
                             } label: {
                                 Label("New Note", systemImage: "square.and.pencil")
                             }
                         }
                     }
                 }
-                .errorAlert(errorMessage: $noteViewModel.errorMessage)
+                .errorAlert(errorMessage: $noteService.errorMessage)
 
-                if (appSettingsViewModel.newNoteButtonPosition.includesBottom) {
+                if (appSettings.newNoteButtonPosition.includesBottom) {
                     FloatingButton {
-                        router.displayNote(noteViewModel.new())
+                        router.displayNote(noteService.new())
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .accessibility(value: Text("New Note"))
@@ -91,7 +91,7 @@ struct NoteList: View {
                     Text("Deleted note.")
                 } action: {
                     withAnimation {
-                        noteViewModel.restoreRecentlyTrashedNote()
+                        noteService.restoreRecentlyTrashedNote()
                     }
                     showUndoTrashSnackbar.toggle()
                 } actionLabel: {
@@ -100,16 +100,16 @@ struct NoteList: View {
                         Text("Undo")
                     }
                 }
-                .id(noteViewModel.recentlyTrashedNote)
+                .id(noteService.recentlyTrashedNote)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .onAppear {
-                noteViewModel.prune()
+                noteService.prune()
             }
             .onDisappear {
                 showUndoTrashSnackbar = false
             }
-            .onChange(of: noteViewModel.recentlyTrashedNote) { trashedNote in
+            .onChange(of: noteService.recentlyTrashedNote) { trashedNote in
                 withAnimation {
                     showUndoTrashSnackbar = (trashedNote != nil)
                 }
@@ -125,9 +125,9 @@ struct NoteList: View {
             }
             .onChange(of: scenePhase) { phase in
                 if phase == .active {
-                    if appSettingsViewModel.startWithNewNote && router.path.isEmpty {
+                    if appSettings.startWithNewNote && router.path.isEmpty {
                         // Start a new note upon app open if that preference is set
-                        router.displayNote(noteViewModel.new())
+                        router.displayNote(noteService.new())
                     } else if router.path.isEmpty {
                         // Only restore navigation when path is empty (fresh launch/state restoration)
                         if let recentlyActiveNoteId, let id = UUID(uuidString: recentlyActiveNoteId) {
@@ -152,8 +152,8 @@ struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
         NoteList()
             .environment(\.managedObjectContext, viewContext)
-            .environmentObject(AppSettingsViewModel())
-            .environmentObject(NoteViewModel(withPersistenceController: .preview))
+            .environmentObject(AppSettings())
+            .environmentObject(NoteService(withPersistenceController: .preview))
             .environmentObject(Router())
     }
 }

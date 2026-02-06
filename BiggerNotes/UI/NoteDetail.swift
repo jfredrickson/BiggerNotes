@@ -10,8 +10,8 @@ import SwiftUI
 struct NoteDetail: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var router: Router
-    @EnvironmentObject var noteViewModel: NoteViewModel
-    @EnvironmentObject var textSettingsViewModel: TextSettingsViewModel
+    @EnvironmentObject var noteService: NoteService
+    @EnvironmentObject var textSettings: TextSettings
     @ObservedObject var note: Note
     @FocusState var isEditing: Bool
     @State private var clearTrigger = UUID()
@@ -19,11 +19,11 @@ struct NoteDetail: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             TextView(text: $note.content, clearTrigger: $clearTrigger)
-                .font(textSettingsViewModel.uiFont)
-                .textColor(textSettingsViewModel.uiTextColor)
+                .font(textSettings.uiFont)
+                .textColor(textSettings.uiTextColor)
                 .backgroundColor(.clear)
-                .background(Color(textSettingsViewModel.uiBackgroundColor).ignoresSafeArea(.all))
-                .onDisappear { noteViewModel.save() }
+                .background(Color(textSettings.uiBackgroundColor).ignoresSafeArea(.all))
+                .onDisappear { noteService.save() }
                 .focused($isEditing)
             if (isEditing) {
                 FloatingButton {
@@ -44,7 +44,7 @@ struct NoteDetail: View {
                 }
                 // Favorite
                 Button {
-                    noteViewModel.toggleFavorite(note)
+                    noteService.toggleFavorite(note)
                 } label: {
                     Label("Toggle Favorite",systemImage: note.favorite ? "star.fill" : "star")
                         .foregroundColor(note.favorite ? .yellow : .accentColor)
@@ -58,7 +58,7 @@ struct NoteDetail: View {
                     }
                     // Delete
                     Button(role: .destructive) {
-                        noteViewModel.trash(note)
+                        noteService.trash(note)
                         dismiss()
                     } label: {
                         Label("Delete note", systemImage: "trash")
@@ -84,9 +84,9 @@ struct NoteDetail: View {
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         return NavigationView {
-            NoteDetail(note: NoteViewModel(withPersistenceController: .preview).new())
-                .environmentObject(NoteViewModel(withPersistenceController: .preview))
-                .environmentObject(TextSettingsViewModel())
+            NoteDetail(note: NoteService(withPersistenceController: .preview).new())
+                .environmentObject(NoteService(withPersistenceController: .preview))
+                .environmentObject(TextSettings())
                 .environmentObject(Router())
         }
     }

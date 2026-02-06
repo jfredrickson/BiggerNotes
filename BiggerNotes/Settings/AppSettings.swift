@@ -1,5 +1,5 @@
 //
-//  AppSettingsViewModel.swift
+//  AppSettings.swift
 //  BiggerNotes
 //
 //  Created by Jeff Fredrickson on 7/29/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class AppSettingsViewModel: ObservableObject {
+class AppSettings: ObservableObject {
     static let DefaultStartWithNewNote = false
     static let DefaultNewNoteButtonPosition = NewNoteButtonPosition.top
     static let DefaultListDensity = ListDensity.comfortable
@@ -19,9 +19,9 @@ class AppSettingsViewModel: ObservableObject {
     @AppStorage("listDensity") var listDensity = DefaultListDensity
 
     func resetToDefaults() {
-        startWithNewNote = AppSettingsViewModel.DefaultStartWithNewNote
-        newNoteButtonPosition = AppSettingsViewModel.DefaultNewNoteButtonPosition
-        listDensity = AppSettingsViewModel.DefaultListDensity
+        startWithNewNote = AppSettings.DefaultStartWithNewNote
+        newNoteButtonPosition = AppSettings.DefaultNewNoteButtonPosition
+        listDensity = AppSettings.DefaultListDensity
     }
 }
 

@@ -12,8 +12,8 @@ struct CreateNewNote: AppIntent {
     static var openAppWhenRun: Bool = true
 
     @MainActor func perform() async throws -> some IntentResult {
-        let noteViewModel = NoteViewModel()
-        Router.shared.displayNote(noteViewModel.new())
+        let noteService = NoteService()
+        Router.shared.displayNote(noteService.new())
         return .result()
     }
 }

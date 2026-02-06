@@ -11,9 +11,9 @@ import CoreData
 @main
 struct BiggerNotesApp: App {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject var noteViewModel = NoteViewModel()
-    @StateObject var appSettingsViewModel = AppSettingsViewModel()
-    @StateObject var textSettingsViewModel = TextSettingsViewModel()
+    @StateObject var noteService = NoteService()
+    @StateObject var appSettings = AppSettings()
+    @StateObject var textSettings = TextSettings()
     @StateObject var router = Router.shared
     
     init() {
@@ -28,7 +28,7 @@ struct BiggerNotesApp: App {
         }
         
         if args.contains("-screenshotVariation1") {
-            let textSettings = TextSettingsViewModel()
+            let textSettings = TextSettings()
             textSettings.resetToDefaults()
             textSettings.useCustomColors = true
             textSettings.fontName = "American Typewriter"
@@ -39,7 +39,7 @@ struct BiggerNotesApp: App {
         }
         
         if args.contains("-screenshotVariation2") {
-            let textSettings = TextSettingsViewModel()
+            let textSettings = TextSettings()
             textSettings.resetToDefaults()
             textSettings.useCustomColors = true
             textSettings.fontName = "Noteworthy"
@@ -50,7 +50,7 @@ struct BiggerNotesApp: App {
         }
         
         if args.contains("-screenshotVariation3") {
-            let textSettings = TextSettingsViewModel()
+            let textSettings = TextSettings()
             textSettings.resetToDefaults()
             textSettings.textSize = 100
         }
@@ -59,17 +59,17 @@ struct BiggerNotesApp: App {
     var body: some Scene {
         WindowGroup {
             NoteList()
-                .environmentObject(noteViewModel)
-                .environmentObject(appSettingsViewModel)
-                .environmentObject(textSettingsViewModel)
+                .environmentObject(noteService)
+                .environmentObject(appSettings)
+                .environmentObject(textSettings)
                 .environmentObject(router)
                 .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
         .onChange(of: scenePhase) { phase in
             if phase == .background {
                 // Delete trashed notes and save all data upon app close
-                noteViewModel.deleteAll(onlyTrashed: true)
-                noteViewModel.save()
+                noteService.deleteAll(onlyTrashed: true)
+                noteService.save()
             }
         }
     }
