@@ -1,5 +1,5 @@
 //
-//  NoteViewModel.swift
+//  NoteService.swift
 //  BiggerNotes
 //
 //  Created by Jeff Fredrickson on 8/1/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-class NoteViewModel: NSObject, ObservableObject {
+class NoteService: NSObject, ObservableObject {
     private let managedObjectContext: NSManagedObjectContext
     @Published var errorMessage: String?
     @Published var recentlyTrashedNote: Note?

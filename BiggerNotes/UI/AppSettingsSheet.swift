@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUIShakeGesture
 
 struct AppSettingsSheet: View {
-    @EnvironmentObject private var appSettingsViewModel: AppSettingsViewModel
+    @EnvironmentObject private var appSettings: AppSettings
     @State private var isPresentingDeleteConfirmation = false
     #if DEBUG
     @State private var devToolsVisible = true
@@ -21,11 +21,11 @@ struct AppSettingsSheet: View {
         SettingsSheet(title: "App Settings") {
             Form {
                 Section {
-                    Toggle(isOn: $appSettingsViewModel.startWithNewNote, label: {
+                    Toggle(isOn: $appSettings.startWithNewNote, label: {
                         Text("Show blank note on start")
                     })
                     
-                    Picker(selection: $appSettingsViewModel.newNoteButtonPosition) {
+                    Picker(selection: $appSettings.newNoteButtonPosition) {
                         ForEach(NewNoteButtonPosition.allCases) { position in
                             Text(String(describing: position))
                         }
@@ -33,7 +33,7 @@ struct AppSettingsSheet: View {
                         Text("New note button")
                     }
                     
-                    Picker(selection: $appSettingsViewModel.listDensity) {
+                    Picker(selection: $appSettings.listDensity) {
                         ForEach(ListDensity.allCases) { density in
                             Text(String(describing: density))
                         }
@@ -44,7 +44,7 @@ struct AppSettingsSheet: View {
                 
                 Section {
                     Button {
-                        appSettingsViewModel.resetToDefaults()
+                        appSettings.resetToDefaults()
                     } label: {
                         Text("Reset to defaults")
                     }
@@ -87,7 +87,7 @@ struct AppSettingsSheet_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             AppSettingsSheet()
-                .environmentObject(AppSettingsViewModel())
+                .environmentObject(AppSettings())
         }
     }
 }

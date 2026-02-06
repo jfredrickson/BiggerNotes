@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NoteLink: View {
-    @EnvironmentObject var noteViewModel: NoteViewModel
+    @EnvironmentObject var noteService: NoteService
     @ObservedObject var note: Note
     
     var body: some View {
@@ -17,7 +17,7 @@ struct NoteLink: View {
                 .swipeActions(edge: .leading) {
                     Button {
                         withAnimation {
-                            noteViewModel.toggleFavorite(note)
+                            noteService.toggleFavorite(note)
                         }
                     } label: {
                         Label("Toggle Favorite", systemImage: note.favorite ? "star.slash.fill" : "star.fill")
@@ -27,7 +27,7 @@ struct NoteLink: View {
                 .swipeActions(edge: .trailing) {
                     Button(role: .destructive) {
                         withAnimation {
-                            noteViewModel.trash(note)
+                            noteService.trash(note)
                         }
                     } label: {
                         Label("Trash", systemImage: "trash.fill")
@@ -39,8 +39,8 @@ struct NoteLink: View {
 
 struct NoteLink_Previews: PreviewProvider {
     static var previews: some View {
-        NoteLink(note: NoteViewModel(withPersistenceController: .preview).new())
-            .environmentObject(NoteViewModel(withPersistenceController: .preview))
-            .environmentObject(AppSettingsViewModel())
+        NoteLink(note: NoteService(withPersistenceController: .preview).new())
+            .environmentObject(NoteService(withPersistenceController: .preview))
+            .environmentObject(AppSettings())
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		081232862A76097C009055E2 /* AppSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232852A76097C009055E2 /* AppSettingsSheet.swift */; };
-		081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232872A7609EA009055E2 /* AppSettingsViewModel.swift */; };
+		081232882A7609EA009055E2 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232872A7609EA009055E2 /* AppSettings.swift */; };
 		0812328A2A761508009055E2 /* Bundle+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081232892A761508009055E2 /* Bundle+Versions.swift */; };
 		0836AE962A87396300032A60 /* SwiftUIShakeGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 0836AE952A87396300032A60 /* SwiftUIShakeGesture */; };
 		0836AE982A873B3900032A60 /* DevToolsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836AE972A873B3900032A60 /* DevToolsSection.swift */; };
@@ -33,13 +33,13 @@
 		A910931928962CB200F87E84 /* TextSettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910931828962CB200F87E84 /* TextSettingsSheet.swift */; };
 		A92146E72DFA792A00C79067 /* SettingsColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92146E62DFA792A00C79067 /* SettingsColor.swift */; };
 		A966ED6A2E8B3F16001BB971 /* BiggerNotes.icon in Resources */ = {isa = PBXBuildFile; fileRef = A966ED692E8B3F16001BB971 /* BiggerNotes.icon */; };
-		A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteViewModel.swift */; };
+		A9917915289869F500AD3C30 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9917914289869F500AD3C30 /* NoteService.swift */; };
 		A99179172898917500AD3C30 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99179162898917500AD3C30 /* View+ErrorAlert.swift */; };
 		A9B0D482298C1507005B58B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0D481298C1507005B58B3 /* TextView.swift */; };
 		A9EE0EA7289E305300012FE2 /* CreateNewNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */; };
 		A9EE0EA9289E310000012FE2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EA8289E310000012FE2 /* Router.swift */; };
 		A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */; };
-		A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */; };
+		A9EE0EB328A01AF500012FE2 /* TextSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE0EB228A01AF500012FE2 /* TextSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		081232852A76097C009055E2 /* AppSettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsSheet.swift; sourceTree = "<group>"; };
-		081232872A7609EA009055E2 /* AppSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewModel.swift; sourceTree = "<group>"; };
+		081232872A7609EA009055E2 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		081232892A761508009055E2 /* Bundle+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Versions.swift"; sourceTree = "<group>"; };
 		0836AE972A873B3900032A60 /* DevToolsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsSection.swift; sourceTree = "<group>"; };
 		0847AED42A66FEAB00A60344 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		A944827B289B1B2B00F6E7FC /* BiggerNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BiggerNotes.entitlements; sourceTree = "<group>"; };
 		A966ED692E8B3F16001BB971 /* BiggerNotes.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = BiggerNotes.icon; sourceTree = "<group>"; };
 		A9913CFC28D13AAB00D7DC73 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
-		A9917914289869F500AD3C30 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		A9917914289869F500AD3C30 /* NoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		A99179162898917500AD3C30 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
 		A9B0D481298C1507005B58B3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		A9E4F2232E8CDB0100377EF2 /* BiggerNotesScreenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BiggerNotesScreenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +92,7 @@
 		A9EE0EA6289E305300012FE2 /* CreateNewNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewNote.swift; sourceTree = "<group>"; };
 		A9EE0EA8289E310000012FE2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A9EE0EAA289E34A300012FE2 /* AppShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShortcuts.swift; sourceTree = "<group>"; };
-		A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettingsViewModel.swift; sourceTree = "<group>"; };
+		A9EE0EB228A01AF500012FE2 /* TextSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -142,6 +142,8 @@
 		A91092F728959F4F00F87E84 /* BiggerNotes */ = {
 			isa = PBXGroup;
 			children = (
+				A937EBFE2F3587840024CBA1 /* Settings */,
+				A937EBFD2F35873A0024CBA1 /* Services */,
 				A9448279289B1A5900F6E7FC /* Data */,
 				A9EE0EA5289E303000012FE2 /* Intents */,
 				A944827A289B1A6F00F6E7FC /* UI */,
@@ -163,6 +165,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A937EBFD2F35873A0024CBA1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A9917914289869F500AD3C30 /* NoteService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A937EBFE2F3587840024CBA1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				081232872A7609EA009055E2 /* AppSettings.swift */,
+				A9EE0EB228A01AF500012FE2 /* TextSettings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A9448279289B1A5900F6E7FC /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +197,6 @@
 			children = (
 				A9B0D483298C160F005B58B3 /* UIKit */,
 				081232852A76097C009055E2 /* AppSettingsSheet.swift */,
-				081232872A7609EA009055E2 /* AppSettingsViewModel.swift */,
 				A91092F828959F4F00F87E84 /* BiggerNotesApp.swift */,
 				081232892A761508009055E2 /* Bundle+Versions.swift */,
 				08CA3D712A872BCD00CE06C6 /* DeleteAllNotesButton.swift */,
@@ -188,14 +206,12 @@
 				A91093102895A50100F87E84 /* NoteDetail.swift */,
 				08D93EB42A985FD90083CE0F /* NoteLink.swift */,
 				A91092FA28959F4F00F87E84 /* NoteList.swift */,
-				A9917914289869F500AD3C30 /* NoteViewModel.swift */,
 				A9EE0EA8289E310000012FE2 /* Router.swift */,
 				08D93EB02A97BDA10083CE0F /* SettingsButton.swift */,
 				A92146E62DFA792A00C79067 /* SettingsColor.swift */,
 				08D93EAE2A97B59A0083CE0F /* SettingsSheet.swift */,
 				08D93EBA2A9980FC0083CE0F /* Snackbar.swift */,
 				A910931828962CB200F87E84 /* TextSettingsSheet.swift */,
-				A9EE0EB228A01AF500012FE2 /* TextSettingsViewModel.swift */,
 				A99179162898917500AD3C30 /* View+ErrorAlert.swift */,
 			);
 			path = UI;
@@ -354,13 +370,13 @@
 				089352282A9C4D4900D22E99 /* FloatingButton.swift in Sources */,
 				A92146E72DFA792A00C79067 /* SettingsColor.swift in Sources */,
 				A9EE0EAB289E34A300012FE2 /* AppShortcuts.swift in Sources */,
-				081232882A7609EA009055E2 /* AppSettingsViewModel.swift in Sources */,
+				081232882A7609EA009055E2 /* AppSettings.swift in Sources */,
 				0847AED52A66FEAB00A60344 /* UIFont.swift in Sources */,
 				A9B0D482298C1507005B58B3 /* TextView.swift in Sources */,
 				0875267C2A93E23C007795F8 /* FontPicker.swift in Sources */,
-				A9917915289869F500AD3C30 /* NoteViewModel.swift in Sources */,
+				A9917915289869F500AD3C30 /* NoteService.swift in Sources */,
 				08CA3D722A872BCD00CE06C6 /* DeleteAllNotesButton.swift in Sources */,
-				A9EE0EB328A01AF500012FE2 /* TextSettingsViewModel.swift in Sources */,
+				A9EE0EB328A01AF500012FE2 /* TextSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

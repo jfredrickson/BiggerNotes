@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DeleteAllNotesButton: View {
-    @EnvironmentObject var noteViewModel: NoteViewModel
+    @EnvironmentObject var noteService: NoteService
     @State var isPresentingConfirmation = false
     
     var body: some View {
@@ -20,7 +20,7 @@ struct DeleteAllNotesButton: View {
         .confirmationDialog("Delete ALL notes?", isPresented: $isPresentingConfirmation) {
             Button("Delete all notes", role: .destructive) {
                 withAnimation {
-                    noteViewModel.deleteAll()
+                    noteService.deleteAll()
                 }
             }
         } message: {

@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct NoteCell: View {
-    @EnvironmentObject private var appSettingsViewModel: AppSettingsViewModel
+    @EnvironmentObject private var appSettings: AppSettings
     @ObservedObject var note: Note
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(note.content?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
                 .lineLimit(1)
-                .font(appSettingsViewModel.listDensity.primaryFont)
+                .font(appSettings.listDensity.primaryFont)
             Text(dateFormatter.string(from: note.modified ?? Date()))
-                .font(appSettingsViewModel.listDensity.secondaryFont)
+                .font(appSettings.listDensity.secondaryFont)
                 .foregroundColor(.secondary)
         }
         .accessibilityIdentifier(note.id?.uuidString ?? "")
@@ -33,7 +33,7 @@ struct NoteCell: View {
 
 struct NoteCell_Previews: PreviewProvider {
     static var previews: some View {
-        NoteCell(note: NoteViewModel(withPersistenceController: .preview).new())
-            .environmentObject(AppSettingsViewModel())
+        NoteCell(note: NoteService(withPersistenceController: .preview).new())
+            .environmentObject(AppSettings())
     }
 }

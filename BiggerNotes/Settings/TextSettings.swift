@@ -1,5 +1,5 @@
 //
-//  TextSettingsViewModel.swift
+//  TextSettings.swift
 //  BiggerNotes
 //
 //  Created by Jeff Fredrickson on 8/7/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class TextSettingsViewModel: ObservableObject {
+class TextSettings: ObservableObject {
     static let MinTextSize = 20.0
     static let MaxTextSize = 120.0
     static let DefaultTextSize = 50.0
@@ -68,10 +68,10 @@ class TextSettingsViewModel: ObservableObject {
     
     // Reset all settings to default values
     func resetToDefaults() {
-        textSize = TextSettingsViewModel.DefaultTextSize
-        textWeight = TextSettingsViewModel.DefaultTextWeight
-        fontName = TextSettingsViewModel.DefaultFont
-        useCustomColors = TextSettingsViewModel.DefaultUseCustomColors
+        textSize = TextSettings.DefaultTextSize
+        textWeight = TextSettings.DefaultTextWeight
+        fontName = TextSettings.DefaultFont
+        useCustomColors = TextSettings.DefaultUseCustomColors
     }
     
     // Return a list of available weights based on the currently selected font
